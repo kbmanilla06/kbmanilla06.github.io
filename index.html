@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Khristopher Ben B. Manilla - Developer, Innovator, Creator.">
     <title>KB Manilla</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <header>
-        <h2>Khristopher Ben B. Manilla</h2>
+        <h1>Khristopher Ben B. Manilla</h1>
         <p>Developer | Innovator | Creator</p>
         <nav>
             <a href="#about">About</a>
@@ -22,7 +22,7 @@
 
     <section id="about" class="intro">
         <h2>About Me</h2>
-        <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t39.30808-6/463979405_900804435446194_6121485522346653753_n.jpg" alt="Photo">
+        <img src="https://scontent.fmnl4-6.fna.fbcdn.net/v/t39.30808-6/463979405_900804435446194_6121485522346653753_n.jpg" alt="Profile photo of Khristopher Ben B. Manilla">
         <p>Hi! I'm Khristopher Ben Manilla, I graduated my senior high school at Our Lady of the Holy Rosary School, I am a dedicated developer with a passion for solving problems and building innovative solutions. This portfolio showcases my professional journey and achievements.</p>
     </section>
 
@@ -47,23 +47,22 @@
             </div>
         </div>
     </section>
-    
 
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects">
             <div class="project">
-                <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t1.15752-9/462565494_974675844473965_398049917556962661_n.png" alt="Project 1">
+                <img src="https://scontent.fmnl4-4.fna.fbcdn.net/v/t1.15752-9/462565494_974675844473965_398049917556962661_n.png" alt="Screenshot of Student Information System">
                 <h3>STUDENT INFORMATION SYSTEM</h3>
                 <p>This is a Student Information System that handles student information.</p>
             </div>
             <div class="project">
-                <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t1.15752-9/470051807_557573883818956_1136312384031494634_n.png" alt="Project 2">
+                <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t1.15752-9/470051807_557573883818956_1136312384031494634_n.png" alt="Screenshot of Snake game">
                 <h3>SNAKE</h3>
                 <p>This is a simple snake game, you can use this to pass time.</p>
             </div>
             <div class="project">
-                <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/467121727_615174990935200_4586244521635851014_n.png" alt="Project 3">
+                <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t1.15752-9/467121727_615174990935200_4586244521635851014_n.png" alt="Screenshot of GUI Calculator">
                 <h3>Calculator (GUI)</h3>
                 <p>A simple calculator that you can use.</p>
             </div>
@@ -76,7 +75,7 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>Interested in collaborating or learning more about my work? Feel free to reach out!</p>
-        <form action="https://formspree.io/f/{your-id}" method="POST">
+        <form action="https://formspree.io/f/your-form-id" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
 
@@ -98,5 +97,12 @@
     <footer>
         <p>&copy; 2024 MANILLA KB. All Rights Reserved | <a href="#">Back to Top</a></p>
     </footer>
+
+    <script>
+        const themeSwitch = document.getElementById('theme-switch');
+        themeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+    </script>
 </body>
 </html>
