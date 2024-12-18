@@ -37,7 +37,7 @@ body.dark-theme a {
 header {
     background: #000;
     color: #fff;
-    padding: 0.8rem 1rem; /* Reduced padding for a shorter height */
+    padding: 0.8rem 1rem;
     text-align: center;
     position: fixed;
     top: 0;
@@ -48,17 +48,16 @@ header {
 }
 
 header h1 {
-    font-size: 2rem; /* Optional: Reduce font size to complement the shorter navbar */
+    font-size: 2rem;
 }
 
 nav {
-    margin-top: 0.5rem; /* Adjust spacing between nav links and header title */
+    margin-top: 0.5rem;
 }
 
 nav a {
-    font-size: 1rem; /* Adjust font size of navigation links if needed */
+    font-size: 1rem;
 }
-
 
 nav a:hover {
     color: #888;
@@ -222,4 +221,15 @@ form button {
 .theme-toggle label {
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .projects {
+        flex-direction: column;
+    }
+
+    .skills-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
 }
