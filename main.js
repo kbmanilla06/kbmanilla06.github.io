@@ -10,6 +10,7 @@ const sections = [
   'work.html',
   'about.html',
   'services.html',
+  'achievements.html',
   'contact.html',
   'footer.html',
 ];
