@@ -1,7 +1,6 @@
 /**
  * main.js
- * Fetches each section partial from /sections/ and injects them
- * sequentially into #app, keeping the page as a single scrollable document.
+ * Fetches each section partial and injects them into #app.
  */
 
 const sections = [
@@ -9,8 +8,8 @@ const sections = [
   'hero.html',
   'work.html',
   'about.html',
-  'services.html',
   'achievements.html',
+  'services.html',
   'contact.html',
   'footer.html',
 ];
@@ -24,11 +23,9 @@ async function loadSections() {
       if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`);
       const html = await res.text();
 
-      // Create a temporary container to parse the fragment
       const temp = document.createElement('div');
       temp.innerHTML = html;
 
-      // Append each child node (preserves <section>, <nav>, <footer> roots)
       while (temp.firstChild) {
         app.appendChild(temp.firstChild);
       }
@@ -37,8 +34,8 @@ async function loadSections() {
     }
   }
 
-  // Initialise scroll-reveal after all sections are in the DOM
   initReveal();
+  initNav();
 }
 
 function initReveal() {
@@ -50,9 +47,25 @@ function initReveal() {
     },
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
-
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 }
+
+function initNav() {
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+}
+
+// Global so onclick="closeNav()" in HTML can reach it
+window.closeNav = function () {
+  document.getElementById('navLinks')?.classList.remove('open');
+  document.getElementById('navToggle')?.classList.remove('active');
+};
 
 loadSections();
 
