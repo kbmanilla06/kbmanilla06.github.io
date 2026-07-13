@@ -202,6 +202,13 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
+.quest-nav.entry-locked .quest-nav-logo,
+.quest-nav.entry-locked .quest-nav-tabs,
+.quest-nav.entry-locked .quest-nav-toggle {
+  opacity: 0.42;
+  pointer-events: none;
+}
+
 .quest-nav-logo {
   display: inline-flex;
   align-items: center;

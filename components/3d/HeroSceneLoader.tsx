@@ -1,20 +1,20 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
-const HeroScene = dynamic(() => import("./HeroScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex h-full w-full items-center justify-center bg-[#0d0906]">
-      <p className="text-sm text-[var(--color-text-muted)]">Lighting the campfire…</p>
-    </div>
-  ),
-});
+import Image from "next/image";
 
 export default function HeroSceneLoader() {
   return (
-    <div className="h-[100svh] w-full" aria-hidden="true">
-      <HeroScene />
+    <div className="hero-camp-backdrop h-[100svh] w-full" aria-hidden="true">
+      <Image
+        src="/pictures/hunter-camp.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="hero-camp-image object-cover"
+      />
+      <div className="hero-camp-light" />
+      <div className="hero-camp-haze" />
+      <div className="hero-camp-dust" />
+      <div className="hero-camp-vignette" />
     </div>
   );
 }

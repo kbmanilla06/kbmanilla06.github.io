@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useUIStore } from "@/store/uiStore";
@@ -20,8 +20,24 @@ export default function LandingSequence() {
   const setLandingStage = useUIStore((s) => s.setLandingStage);
   const completeLanding = useUIStore((s) => s.completeLanding);
   const enterGuild = useAudioStore((s) => s.enterGuild);
+  const entryLocked = landingStage === "black" || landingStage === "gate";
 
   const { contextSafe } = useGSAP({ scope: container });
+
+  useEffect(() => {
+    if (!entryLocked) return;
+
+    const root = document.documentElement;
+    const body = document.body;
+    root.classList.add("guild-entry-locked");
+    body.classList.add("guild-entry-locked");
+    window.scrollTo(0, 0);
+
+    return () => {
+      root.classList.remove("guild-entry-locked");
+      body.classList.remove("guild-entry-locked");
+    };
+  }, [entryLocked]);
 
   const handleEnter = contextSafe(() => {
     enterGuild();
@@ -60,8 +76,15 @@ export default function LandingSequence() {
   );
 
   return (
-    <div ref={container} className="pointer-events-none absolute inset-0 z-10">
-      <div ref={overlay} className="absolute inset-0 bg-black" />
+    <div
+      ref={container}
+      className="pointer-events-none absolute inset-0 z-10"
+      data-entry-locked={entryLocked}
+    >
+      <div
+        ref={overlay}
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(20,16,12,0.12),rgba(0,0,0,0.62))]"
+      />
 
       <div
         className="absolute inset-x-0 bottom-0 h-[50%]"
