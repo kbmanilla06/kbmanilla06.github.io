@@ -2,57 +2,55 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAudioStore } from "@/store/audioStore";
 import { useUIStore } from "@/store/uiStore";
-import VolumeDial from "./VolumeDial";
+
+const SOUNDTRACK_URL = "https://www.youtube.com/watch?v=p1fEV6QbCww";
 
 export default function MusicBoxControl() {
   const [open, setOpen] = useState(false);
   const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);
-
-  const musicVolume = useAudioStore((s) => s.musicVolume);
-  const ambienceVolume = useAudioStore((s) => s.ambienceVolume);
-  const musicMuted = useAudioStore((s) => s.musicMuted);
-  const ambienceMuted = useAudioStore((s) => s.ambienceMuted);
-  const setMusicVolume = useAudioStore((s) => s.setMusicVolume);
-  const setAmbienceVolume = useAudioStore((s) => s.setAmbienceVolume);
-  const toggleMusicMuted = useAudioStore((s) => s.toggleMusicMuted);
-  const toggleAmbienceMuted = useAudioStore((s) => s.toggleAmbienceMuted);
 
   return (
     <div className="music-box-control fixed bottom-5 right-5 z-[110] flex flex-col items-end gap-3">
       <AnimatePresence>
         {open && (
           <motion.div
-            className="music-box-panel guild-panel flex items-center gap-5 px-5 py-4"
+            className="music-box-panel guild-panel w-[min(23rem,calc(100vw-1.5rem))] p-4"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 12, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.95 }}
             transition={{ duration: prefersReducedMotion ? 0.01 : 0.2 }}
           >
-            <div className="flex flex-col items-center gap-2">
-              <VolumeDial label="Music" value={musicMuted ? 0 : musicVolume} onChange={setMusicVolume} />
-              <button
-                type="button"
-                className="text-[0.65rem] text-[var(--color-text-muted)] hover:text-[var(--color-gold-bright)]"
-                onClick={toggleMusicMuted}
-              >
-                {musicMuted ? "Unmute" : "Mute"}
-              </button>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)]">
+                Field Guide Soundtrack
+              </p>
+              <p className="mt-2 text-sm text-[var(--color-ivory)]">Proof of a Hero</p>
+              <p className="mt-1 text-xs leading-relaxed text-[var(--color-text-muted)]">
+                Press play in the official YouTube player. Playback remains optional and user-controlled.
+              </p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <VolumeDial
-                label="Ambience"
-                value={ambienceMuted ? 0 : ambienceVolume}
-                onChange={setAmbienceVolume}
+            <div className="mt-3 overflow-hidden rounded border border-[var(--color-brass-dark)] bg-black">
+              <iframe
+                className="aspect-video w-full"
+                src="https://www.youtube-nocookie.com/embed/p1fEV6QbCww?rel=0"
+                title="Proof of a Hero — official YouTube player"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
               />
-              <button
-                type="button"
-                className="text-[0.65rem] text-[var(--color-text-muted)] hover:text-[var(--color-gold-bright)]"
-                onClick={toggleAmbienceMuted}
+            </div>
+            <div className="mt-3 flex items-center justify-between gap-3 text-[0.68rem]">
+              <span className="text-[var(--color-text-muted)]">Streamed by YouTube · not hosted here</span>
+              <a
+                href={SOUNDTRACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 text-[var(--color-gold)] hover:text-[var(--color-gold-bright)]"
               >
-                {ambienceMuted ? "Unmute" : "Mute"}
-              </button>
+                Open on YouTube ↗
+              </a>
             </div>
           </motion.div>
         )}
@@ -60,21 +58,15 @@ export default function MusicBoxControl() {
 
       <button
         type="button"
-        aria-label={open ? "Close guild music box" : "Open guild music box"}
+        aria-label={open ? "Close portfolio soundtrack" : "Open portfolio soundtrack"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         className="music-box-toggle guild-button"
       >
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--color-gold-bright)" strokeWidth="1.4">
-          {musicMuted ? (
-            <path d="M3 9v6h4l5 5V4L7 9H3zM18 9l4 4m0-4l-4 4" strokeLinecap="round" strokeLinejoin="round" />
-          ) : (
-            <path
-              d="M3 9v6h4l5 5V4L7 9H3zM16 8a4 4 0 010 8M18.5 5.5a8 8 0 010 13"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          )}
+          <path d="M9 18V5l10-2v13" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="6" cy="18" r="3" />
+          <circle cx="16" cy="16" r="3" />
         </svg>
       </button>
     </div>
