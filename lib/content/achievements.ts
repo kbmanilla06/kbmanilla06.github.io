@@ -26,4 +26,13 @@ export const ACHIEVEMENTS: Achievement[] = [
     description:
       "Consecutively recognized for sustained academic excellence, maintaining high standing across all subjects in the BS Computer Science program.",
   },
+  {
+    id: "deans-list-3",
+    years: "2025 – 2026",
+    hunterRank: "Adept Hunter · 3rd Year",
+    title: "Dean's List Awardee",
+    org: "Lyceum of the Philippines University – Cavite",
+    description:
+      "Recognized for a third consecutive academic year for sustained excellence and strong standing in the BS Computer Science program.",
+  },
 ];
