@@ -8,7 +8,7 @@ import { usePerformanceStore } from "@/store/performanceStore";
 import { useUIStore } from "@/store/uiStore";
 
 const MODEL_PATH = "/models/tripo-fantasy-assassin.glb";
-const BASE_YAW = Math.PI;
+const BASE_YAW = -Math.PI / 2;
 
 function FantasyAssassin() {
   const model = useRef<Group>(null);
