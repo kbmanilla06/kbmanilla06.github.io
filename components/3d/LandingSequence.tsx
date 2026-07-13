@@ -101,7 +101,7 @@ export default function LandingSequence() {
           with precision and care.
         </p>
         <div className="pointer-events-auto flex flex-wrap justify-center gap-3">
-          <GuildButton href="/quests" variant="accent" brass>
+          <GuildButton href="#quests" variant="accent" brass>
             View Completed Quests
           </GuildButton>
           <GuildButton href="https://github.com/kbmanilla06" external>

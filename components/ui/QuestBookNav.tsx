@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,11 +11,41 @@ import { GuildEmblemIcon } from "./icons";
 
 export default function QuestBookNav() {
   const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("home");
   const mobileNavOpen = useUIStore((s) => s.mobileNavOpen);
   const setMobileNavOpen = useUIStore((s) => s.setMobileNavOpen);
   const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);
 
   const playPageTurn = () => getAudioEngine().playSfx("pageTurn");
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sectionIds = ["home", ...GUILD_ROUTES.map(({ sectionId }) => sectionId)];
+    const updateActiveSection = () => {
+      const marker = window.scrollY + window.innerHeight * 0.35;
+      let current = "home";
+
+      for (const sectionId of sectionIds) {
+        const section = document.getElementById(sectionId);
+        if (section && section.offsetTop <= marker) current = sectionId;
+      }
+
+      setActiveSection(current);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, [pathname]);
+
+  const sectionHref = (sectionId: string) =>
+    pathname === "/" ? `#${sectionId}` : `/#${sectionId}`;
 
   return (
     <motion.nav
@@ -25,10 +56,11 @@ export default function QuestBookNav() {
       transition={{ duration: prefersReducedMotion ? 0.01 : 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
     >
       <Link
-        href="/"
+        href={sectionHref("home")}
         className="quest-nav-logo"
         onClick={() => {
           playPageTurn();
+          setActiveSection("home");
           setMobileNavOpen(false);
         }}
       >
@@ -41,10 +73,15 @@ export default function QuestBookNav() {
         {GUILD_ROUTES.map((route) => (
           <Link
             key={route.href}
-            href={route.href}
+            href={sectionHref(route.sectionId)}
             className={`quest-nav-tab ${route.cta ? "cta" : ""}`}
-            aria-current={pathname === route.href ? "page" : undefined}
-            onClick={playPageTurn}
+            aria-current={
+              pathname === "/" && activeSection === route.sectionId ? "location" : undefined
+            }
+            onClick={() => {
+              playPageTurn();
+              setActiveSection(route.sectionId);
+            }}
           >
             {route.label}
           </Link>
@@ -83,10 +120,15 @@ export default function QuestBookNav() {
             {GUILD_ROUTES.map((route) => (
               <Link
                 key={route.href}
-                href={route.href}
-                aria-current={pathname === route.href ? "page" : undefined}
+                href={sectionHref(route.sectionId)}
+                aria-current={
+                  pathname === "/" && activeSection === route.sectionId
+                    ? "location"
+                    : undefined
+                }
                 onClick={() => {
                   playPageTurn();
+                  setActiveSection(route.sectionId);
                   setMobileNavOpen(false);
                 }}
               >

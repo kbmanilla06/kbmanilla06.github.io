@@ -111,6 +111,15 @@ html {
   scroll-behavior: smooth;
 }
 
+.portfolio-section {
+  position: relative;
+  scroll-margin-top: 4.5rem;
+}
+
+.portfolio-section:not(#home) {
+  border-top: 1px solid rgba(168, 129, 63, 0.22);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
