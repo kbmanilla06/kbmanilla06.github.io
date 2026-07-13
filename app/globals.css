@@ -222,7 +222,7 @@ body:has([data-entry-locked="true"]) {
 
 .portfolio-section {
   position: relative;
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 6rem;
 }
 
 .portfolio-section:not(#home) {

@@ -7,7 +7,22 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useUIStore } from "@/store/uiStore";
 import { GUILD_ROUTES } from "@/lib/content/routes";
 import { getAudioEngine } from "@/lib/audio/AudioEngine";
-import { GuildEmblemIcon } from "./icons";
+import {
+  GuildEmblemIcon,
+  MailIcon,
+  ShieldIcon,
+  SwordIcon,
+  TentIcon,
+} from "./icons";
+
+const NAV_ICONS: Record<string, React.ReactNode> = {
+  quests: <SwordIcon />,
+  about: <GuildEmblemIcon />,
+  armory: <ShieldIcon />,
+  trophies: <GuildEmblemIcon />,
+  arsenal: <TentIcon />,
+  contact: <MailIcon />,
+};
 
 export default function QuestBookNav() {
   const pathname = usePathname();
@@ -71,8 +86,13 @@ export default function QuestBookNav() {
           setMobileNavOpen(false);
         }}
       >
-        <GuildEmblemIcon width={16} height={16} aria-hidden="true" stroke="var(--color-gold-bright)" />
-        K.B. Manilla
+        <span className="quest-nav-logo-emblem" aria-hidden="true">
+          <GuildEmblemIcon />
+        </span>
+        <span className="quest-nav-title">
+          <span>Hunter&rsquo;s Field Guide</span>
+          <strong>K.B. Manilla</strong>
+        </span>
         <span className="quest-nav-rank">HR 47</span>
       </Link>
 
@@ -96,7 +116,10 @@ export default function QuestBookNav() {
               setActiveSection(route.sectionId);
             }}
           >
-            {route.label}
+            <span className="quest-nav-tab-icon" aria-hidden="true">
+              {NAV_ICONS[route.sectionId]}
+            </span>
+            <span className="quest-nav-tab-label">{route.label}</span>
           </Link>
         ))}
       </div>
@@ -152,6 +175,9 @@ export default function QuestBookNav() {
                   setMobileNavOpen(false);
                 }}
               >
+                <span className="quest-nav-mobile-icon" aria-hidden="true">
+                  {NAV_ICONS[route.sectionId]}
+                </span>
                 {route.label}
               </Link>
             ))}
