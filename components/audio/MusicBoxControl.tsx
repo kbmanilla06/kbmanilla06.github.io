@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useUIStore } from "@/store/uiStore";
 
 const SOUNDTRACK_URL = "https://www.youtube.com/watch?v=p1fEV6QbCww";
@@ -12,15 +12,13 @@ export default function MusicBoxControl() {
 
   return (
     <div className="music-box-control fixed bottom-5 right-5 z-[110] flex flex-col items-end gap-3">
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="music-box-panel guild-panel w-[min(23rem,calc(100vw-1.5rem))] p-4"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 12, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.95 }}
-            transition={{ duration: prefersReducedMotion ? 0.01 : 0.2 }}
-          >
+      <motion.div
+        className={`music-box-panel guild-panel w-[min(23rem,calc(100vw-1.5rem))] p-4 ${open ? "visible pointer-events-auto" : "invisible pointer-events-none"}`}
+        aria-hidden={!open}
+        initial={false}
+        animate={open ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 12, scale: 0.95 }}
+        transition={{ duration: prefersReducedMotion ? 0.01 : 0.2 }}
+      >
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)]">
                 Field Guide Soundtrack
@@ -39,6 +37,7 @@ export default function MusicBoxControl() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
+                tabIndex={open ? 0 : -1}
               />
             </div>
             <div className="mt-3 flex items-center justify-between gap-3 text-[0.68rem]">
@@ -47,14 +46,13 @@ export default function MusicBoxControl() {
                 href={SOUNDTRACK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                tabIndex={open ? 0 : -1}
                 className="shrink-0 text-[var(--color-gold)] hover:text-[var(--color-gold-bright)]"
               >
                 Open on YouTube ↗
               </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </motion.div>
 
       <button
         type="button"
