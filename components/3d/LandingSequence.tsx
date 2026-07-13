@@ -3,19 +3,16 @@
 import { useEffect } from "react";
 import GuildButton from "@/components/ui/GuildButton";
 import { PROFILE } from "@/lib/content/profile";
-import { useAudioStore } from "@/store/audioStore";
 import { useUIStore } from "@/store/uiStore";
 
 const PROOF_POINTS = [
-  "397 automated tests",
+  "717 automated tests",
   "4 server-enforced roles",
   "3× Dean’s List",
 ] as const;
 
 export default function LandingSequence() {
   const completeLanding = useUIStore((state) => state.completeLanding);
-  const hasEnteredGuild = useAudioStore((state) => state.hasEnteredGuild);
-  const enterGuild = useAudioStore((state) => state.enterGuild);
 
   useEffect(() => {
     completeLanding();
@@ -51,23 +48,12 @@ export default function LandingSequence() {
               ))}
             </ul>
 
-            <div className="pointer-events-auto mt-6 flex flex-wrap gap-3">
-              <GuildButton href="#quests" variant="accent" brass>
-                View TimeForge
+            <div className="hero-cta-row pointer-events-auto mt-6 flex flex-wrap gap-3">
+              <GuildButton href="/projects/timeforge" variant="accent" brass>
+                TimeForge Case Study
               </GuildButton>
-              <GuildButton href={PROFILE.resume} external brass>
-                View Résumé
-              </GuildButton>
-              <GuildButton href={PROFILE.github} external>
-                GitHub
-              </GuildButton>
-              <GuildButton
-                type="button"
-                variant="ghost"
-                onClick={enterGuild}
-                disabled={hasEnteredGuild}
-              >
-                {hasEnteredGuild ? "Guild Ambience On" : "Enable Guild Ambience"}
+              <GuildButton href={PROFILE.resume} download="Khristopher_Ben_Manilla_Resume.pdf" brass>
+                Download Résumé
               </GuildButton>
             </div>
           </div>

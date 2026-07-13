@@ -9,7 +9,7 @@ export default function QuestCard({ quest }: { quest: Quest }) {
       <BrassCorner position="tl" />
       <BrassCorner position="tr" />
 
-      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[var(--color-brass-dark)] bg-[var(--color-iron)]">
+      <div className="quest-card-image relative aspect-[16/10] w-full overflow-hidden border-b border-[var(--color-brass-dark)] bg-[var(--color-iron)]">
         <Image
           src={quest.image}
           alt={`${quest.title} preview`}
@@ -37,7 +37,7 @@ export default function QuestCard({ quest }: { quest: Quest }) {
         <p className="text-sm text-[var(--color-text-muted)]">{quest.summary}</p>
 
         <dl className="quest-evidence-meta">
-          <div>
+          <div className={quest.featured ? "hidden" : undefined}>
             <dt>Context</dt>
             <dd>{quest.context}</dd>
           </div>
@@ -73,8 +73,13 @@ export default function QuestCard({ quest }: { quest: Quest }) {
           ))}
         </div>
 
-        <div className="mt-auto pt-3">
-          <GuildButton href={quest.repoUrl} external brass>
+        <div className="mt-auto flex flex-wrap gap-3 pt-3">
+          {quest.caseStudyUrl && (
+            <GuildButton href={quest.caseStudyUrl} variant="accent" brass>
+              Read Case Study
+            </GuildButton>
+          )}
+          <GuildButton href={quest.repoUrl} external brass={!quest.caseStudyUrl}>
             Review Repository
           </GuildButton>
         </div>

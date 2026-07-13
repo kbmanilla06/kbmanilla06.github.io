@@ -44,7 +44,7 @@
   --color-surface: var(--color-charcoal);
   --color-panel: var(--color-leather-dark);
   --color-text: var(--color-ivory);
-  --color-text-muted: #b8ab8c;
+  --color-text-muted: #c9bea4;
   --color-accent: var(--color-gold);
   --color-accent-strong: var(--color-gold-bright);
 
@@ -113,6 +113,8 @@ html {
 
 .hero-camp-backdrop {
   position: relative;
+  height: calc(100svh - 76px);
+  min-height: 640px;
   overflow: hidden;
   background: #201a15;
 }
@@ -166,12 +168,16 @@ html {
   border-color: var(--color-gold);
 }
 
+.quest-card-featured .quest-card-image {
+  aspect-ratio: 16 / 7;
+}
+
 .quest-project-grid > :first-child {
   grid-column: 1 / -1;
 }
 
 .quest-card-featured .quest-evidence-meta {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .quest-evidence-meta {
@@ -195,7 +201,7 @@ html {
 .quest-evidence-meta dd {
   margin-top: 0.2rem;
   color: var(--color-text-muted);
-  font-size: 0.75rem;
+  font-size: 0.84rem;
   line-height: 1.5;
 }
 
@@ -205,7 +211,7 @@ html {
   gap: 0.5rem;
   margin-top: 0.6rem;
   color: var(--color-text-muted);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   line-height: 1.55;
 }
 
@@ -334,6 +340,11 @@ html {
 }
 
 @media (max-width: 640px) {
+  .hero-camp-backdrop {
+    height: calc(100svh - 64px);
+    min-height: 660px;
+  }
+
   .hero-camp-image {
     object-position: 46% center;
   }
@@ -344,7 +355,27 @@ html {
   }
 
   .hero-recruiter-copy {
-    bottom: 1.5rem;
+    bottom: 1.25rem;
+  }
+
+  .hero-cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-cta-row .guild-button {
+    min-width: 0;
+    padding-inline: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .music-box-control {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .music-box-panel {
+    max-width: calc(100vw - 1.5rem);
   }
 
   .hero-copy-shade {
@@ -353,6 +384,165 @@ html {
 
   .quest-card-featured .quest-evidence-meta {
     grid-template-columns: 1fr;
+  }
+}
+
+.music-box-toggle {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+@media (max-width: 640px) {
+  .music-box-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.case-study-hero,
+.case-study-section {
+  scroll-margin-top: 7rem;
+}
+
+.case-study-preview {
+  box-shadow: var(--shadow-lift);
+}
+
+.case-study-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 2.5rem 0 0;
+  border: 1px solid var(--color-brass-dark);
+  background: var(--color-brass-dark);
+}
+
+.case-study-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.4rem;
+  background: var(--color-charcoal);
+  text-align: center;
+}
+
+.case-study-metrics strong {
+  color: var(--color-gold-bright);
+  font-family: var(--font-decorative);
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.case-study-metrics span {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.case-study-section {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.case-study-section h2 {
+  margin-top: 0.55rem;
+  color: var(--color-ivory);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.case-study-section p:not(.case-study-label) {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.case-study-label {
+  color: var(--color-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.case-study-module-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.75rem;
+  color: var(--color-ivory);
+  line-height: 1.55;
+}
+
+.architecture-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.architecture-flow > div {
+  min-height: 150px;
+  padding: 1.25rem;
+  border: 1px solid var(--color-brass-dark);
+  background: linear-gradient(145deg, var(--color-charcoal), var(--color-leather-dark));
+  box-shadow: var(--shadow-inset-bevel);
+}
+
+.architecture-flow span,
+.architecture-flow strong,
+.architecture-flow small {
+  display: block;
+}
+
+.architecture-flow span {
+  color: var(--color-gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.architecture-flow strong {
+  margin-top: 0.8rem;
+  color: var(--color-ivory);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.architecture-flow small {
+  margin-top: 0.55rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.architecture-flow > i {
+  color: var(--color-gold-bright);
+  font-family: var(--font-decorative);
+  font-size: 1.5rem;
+  font-style: normal;
+}
+
+.case-study-note {
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .case-study-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .case-study-module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture-flow > i {
+    transform: rotate(90deg);
+    text-align: center;
   }
 }
 

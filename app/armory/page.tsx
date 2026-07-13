@@ -6,8 +6,8 @@ import { GuildEmblemIcon, ShieldIcon, SwordIcon, TentIcon } from "@/components/u
 import { SKILLS, type ArmoryCategory } from "@/lib/content/skills";
 
 export const metadata: Metadata = {
-  title: "Armory — Khristopher Ben Manilla",
-  description: "Equipment loadout and tech stack of Khristopher Ben Manilla, presented as a Hunter's Guild armory.",
+  title: "Technical Skills — Khristopher Ben Manilla",
+  description: "Technical skills backed by projects, testing, and production delivery.",
 };
 
 const CATEGORY_ICONS: Record<ArmoryCategory, React.ReactNode> = {
@@ -18,10 +18,10 @@ const CATEGORY_ICONS: Record<ArmoryCategory, React.ReactNode> = {
 };
 
 const HUNTER_STATUS = [
-  { label: "Current Rank", value: "Fourth-Year BSCS", tone: "gold" },
+  { label: "Academic Standing", value: "Fourth-Year BSCS", tone: "gold" },
   { label: "Primary Focus", value: "Full-Stack Engineering", tone: "green" },
   { label: "Supporting Focus", value: "Secure AI / ML", tone: "blue" },
-  { label: "Current Quest", value: "Internship Delivery", tone: "red" },
+  { label: "Current Work", value: "Internship Delivery", tone: "red" },
 ] as const;
 
 const FIELD_TRAITS = ["Evidence-led decisions", "Automated validation", "Secure by default", "Stakeholder translation"];
@@ -31,7 +31,7 @@ export default function ArmoryPage() {
     <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
       <RevealOnScroll>
         <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
-          Equipment &amp; Status
+          Technical Profile
         </p>
         <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Skills backed by shipped work</h2>
         <p className="mt-3 max-w-2xl text-sm text-[var(--color-text-muted)]">
@@ -46,8 +46,8 @@ export default function ArmoryPage() {
               <span className="armory-heading-icon">
                 <SwordIcon />
               </span>
-              <h2 id="equipment-skills-title">Equipment Skills</h2>
-              <span>{String(SKILLS.length).padStart(2, "0")} equipped</span>
+              <h2 id="equipment-skills-title">Technical Skills</h2>
+              <span>{String(SKILLS.length).padStart(2, "0")} documented</span>
             </header>
 
             <div className="armory-skill-list">
@@ -74,7 +74,7 @@ export default function ArmoryPage() {
               <span className="armory-heading-icon">
                 <ShieldIcon />
               </span>
-              <h2 id="hunter-status-title">Hunter Status</h2>
+              <h2 id="hunter-status-title">Engineering Profile</h2>
             </header>
 
             <LeatherFrame className="armory-status-card">
@@ -95,7 +95,7 @@ export default function ArmoryPage() {
               </dl>
 
               <div className="armory-traits">
-                <h3>Field Traits</h3>
+                <h3>Professional Strengths</h3>
                 <ul>
                   {FIELD_TRAITS.map((trait, index) => (
                     <li key={trait}><span>{String(index + 1).padStart(2, "0")}</span>{trait}</li>

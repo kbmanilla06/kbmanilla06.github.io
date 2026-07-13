@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
 import LeatherFrame from "@/components/ui/LeatherFrame";
 import { EDUCATION, EXPERIENCE } from "@/lib/content/experience";
+import { CERTIFICATIONS } from "@/lib/content/certifications";
 
 export const metadata: Metadata = {
   title: "Experience & Education — Khristopher Ben Manilla",
@@ -38,6 +39,30 @@ export default function ArsenalPage() {
           </LeatherFrame>
         </RevealOnScroll>
       </div>
+
+      <RevealOnScroll delay={0.12} className="mt-8">
+        <div className="mb-5">
+          <p className="text-sm uppercase tracking-wide text-[var(--color-gold)]">Additional Training</p>
+          <h3 className="mt-2 text-2xl text-[var(--color-ivory)]">Certifications &amp; development</h3>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {CERTIFICATIONS.map((certification) => (
+            <LeatherFrame key={certification.title} className="p-5">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h4 className="text-base text-[var(--color-ivory)]">{certification.title}</h4>
+                  <p className="mt-2 text-sm text-[var(--color-brass-light)]">{certification.issuer}</p>
+                </div>
+                <span className="shrink-0 text-xs text-[var(--color-gold)]">{certification.issued}</span>
+              </div>
+              <p className="mt-3 text-sm text-[var(--color-text-muted)]">{certification.credential}</p>
+            </LeatherFrame>
+          ))}
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-[var(--color-text-muted)]">
+          Public credential links can be added when the individual badge URLs are available.
+        </p>
+      </RevealOnScroll>
     </div>
   );
 }

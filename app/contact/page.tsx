@@ -6,8 +6,8 @@ import { MailIcon, LinkedInIcon, GitHubIcon } from "@/components/ui/icons";
 import { PROFILE } from "@/lib/content/profile";
 
 export const metadata: Metadata = {
-  title: "Guild Reception — Khristopher Ben Manilla",
-  description: "Send a quest request to Khristopher Ben Manilla.",
+  title: "Contact — Khristopher Ben Manilla",
+  description: "Contact Khristopher Ben Manilla about software engineering opportunities.",
 };
 
 export default function ContactPage() {
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <div className="grid gap-12 sm:grid-cols-2">
         <RevealOnScroll>
           <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
-            Post a Request
+            Contact
           </p>
           <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Let&rsquo;s discuss the work.</h2>
           <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">

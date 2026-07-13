@@ -8,6 +8,7 @@ export interface Quest {
   image: string;
   tags: string[];
   repoUrl: string;
+  caseStudyUrl?: string;
   status: "Flagship" | "Completed" | "Team Project";
   summary: string;
   context: string;
@@ -20,7 +21,7 @@ export interface Quest {
 export const QUESTS: Quest[] = [
   {
     slug: "timeforge",
-    questNumber: "Quest 01",
+    questNumber: "Project 01",
     rank: "Flagship Build",
     title: "TimeForge",
     category: "Full-Stack Workforce SaaS",
@@ -28,6 +29,7 @@ export const QUESTS: Quest[] = [
     image: "/pictures/timeforge-landing.png",
     tags: ["React", "TypeScript", "Laravel", "PostgreSQL", "Security"],
     repoUrl: "https://github.com/kbmanilla06/TimeForge",
+    caseStudyUrl: "/projects/timeforge",
     status: "Flagship",
     summary:
       "A workforce performance platform combining time tracking, approval workflows, KPIs, payroll preparation, reporting, onboarding, and auditable AI insights.",
@@ -38,7 +40,7 @@ export const QUESTS: Quest[] = [
     collaboration:
       "Stakeholder-led and AI-assisted; engineering decisions, review, validation, and delivery owned by me.",
     evidence: [
-      "397 automated backend and frontend tests",
+      "717 automated backend and frontend tests",
       "Four roles enforced server-side with policies and middleware",
       "80-commit, sprint-documented delivery history",
       "PostgreSQL, Docker, GitHub Actions, backup and deployment runbooks",
@@ -47,7 +49,7 @@ export const QUESTS: Quest[] = [
   },
   {
     slug: "customer-churn-prediction",
-    questNumber: "Quest 02",
+    questNumber: "Project 02",
     rank: "",
     title: "Customer Churn Prediction",
     category: "Applied Machine Learning",
@@ -70,7 +72,7 @@ export const QUESTS: Quest[] = [
   },
   {
     slug: "natural-language-toolkit",
-    questNumber: "Quest 03",
+    questNumber: "Project 03",
     rank: "",
     title: "NLTKBot",
     category: "Natural Language Processing",

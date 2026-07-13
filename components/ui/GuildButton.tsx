@@ -24,6 +24,7 @@ interface ButtonProps
 interface LinkProps extends BaseProps {
   href: string;
   external?: boolean;
+  download?: boolean | string;
 }
 
 type GuildButtonProps = ButtonProps | LinkProps;
@@ -50,13 +51,14 @@ export default function GuildButton(props: GuildButtonProps) {
   );
 
   if ("href" in props && props.href) {
-    const { href, external } = props;
-    if (external) {
+    const { href, external, download } = props;
+    if (external || download) {
       return (
         <a
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={external && !download ? "_blank" : undefined}
+          rel={external && !download ? "noopener noreferrer" : undefined}
+          download={download}
           className={classes}
           onClick={playPressSfx}
         >

@@ -4,8 +4,8 @@ import GuildPanel from "@/components/ui/GuildPanel";
 import { ACHIEVEMENTS } from "@/lib/content/achievements";
 
 export const metadata: Metadata = {
-  title: "Trophies — Khristopher Ben Manilla",
-  description: "Guild commendations and academic trophies earned by Khristopher Ben Manilla.",
+  title: "Academic Honors — Khristopher Ben Manilla",
+  description: "Academic honors earned by Khristopher Ben Manilla.",
 };
 
 export default function TrophiesPage() {
@@ -13,7 +13,7 @@ export default function TrophiesPage() {
     <div className="mx-auto max-w-4xl px-6 py-16 sm:py-24">
       <RevealOnScroll>
         <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
-          Guild Commendations
+          Academic Recognition
         </p>
         <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Academic honors</h2>
       </RevealOnScroll>

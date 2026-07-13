@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import GuildPanel from "@/components/ui/GuildPanel";
 import EngravedIcon from "@/components/ui/EngravedIcon";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
-import { GuildEmblemIcon, SwordIcon } from "@/components/ui/icons";
+import { GuildEmblemIcon } from "@/components/ui/icons";
 import { PROFILE } from "@/lib/content/profile";
-import { SKILLS } from "@/lib/content/skills";
 
 export const metadata: Metadata = {
-  title: "Hunter Profile — Khristopher Ben Manilla",
-  description: "Guild Card and Hunter Profile of Khristopher Ben Manilla.",
+  title: "Professional Profile — Khristopher Ben Manilla",
+  description: "Professional profile of full-stack software engineer Khristopher Ben Manilla.",
 };
 
 export default function AboutPage() {
@@ -20,7 +19,7 @@ export default function AboutPage() {
             <EngravedIcon>
               <GuildEmblemIcon />
             </EngravedIcon>
-            Hunter Profile
+            Professional Profile
           </p>
           <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">
             Product-minded engineering, backed by validation.
@@ -40,24 +39,6 @@ export default function AboutPage() {
               </p>
             ))}
 
-            <div>
-              <p className="section-label mb-4 inline-flex items-center gap-2 text-sm uppercase tracking-wide text-[var(--color-gold)]">
-                <EngravedIcon>
-                  <SwordIcon />
-                </EngravedIcon>
-                Core Toolkit
-              </p>
-              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {SKILLS.map((skill) => (
-                  <li
-                    key={skill.name}
-                    className="rounded border border-[var(--color-brass-dark)] bg-[var(--color-charcoal)] px-3 py-2 text-center text-sm text-[var(--color-ivory)]"
-                  >
-                    {skill.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
           </GuildPanel>
         </RevealOnScroll>
       </div>

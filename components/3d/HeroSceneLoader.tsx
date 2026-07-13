@@ -20,7 +20,7 @@ export default function HeroSceneLoader() {
   }, [prefersReducedMotion]);
 
   return (
-    <div className="hero-camp-backdrop h-[100svh] w-full" aria-hidden="true">
+    <div className="hero-camp-backdrop w-full" aria-hidden="true">
       <Image
         src="/pictures/hunter-camp.webp"
         alt=""

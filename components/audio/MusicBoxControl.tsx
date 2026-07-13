@@ -20,11 +20,11 @@ export default function MusicBoxControl() {
   const toggleAmbienceMuted = useAudioStore((s) => s.toggleAmbienceMuted);
 
   return (
-    <div className="fixed bottom-5 right-5 z-[110] flex flex-col items-end gap-3">
+    <div className="music-box-control fixed bottom-5 right-5 z-[110] flex flex-col items-end gap-3">
       <AnimatePresence>
         {open && (
           <motion.div
-            className="guild-panel flex items-center gap-5 px-5 py-4"
+            className="music-box-panel guild-panel flex items-center gap-5 px-5 py-4"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 12, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.95 }}
@@ -63,8 +63,7 @@ export default function MusicBoxControl() {
         aria-label={open ? "Close guild music box" : "Open guild music box"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="guild-button"
-        style={{ borderRadius: "50%", width: 52, height: 52, padding: 0, justifyContent: "center" }}
+        className="music-box-toggle guild-button"
       >
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--color-gold-bright)" strokeWidth="1.4">
           {musicMuted ? (

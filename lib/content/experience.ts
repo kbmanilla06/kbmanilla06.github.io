@@ -7,7 +7,7 @@ export const EXPERIENCE = {
   highlights: [
     "Translated a product requirements document into time tracking, approvals, KPIs, payroll preparation, reporting, onboarding, and AI-insight workflows.",
     "Implemented a Laravel and React/TypeScript architecture with PostgreSQL, four server-enforced roles, protected attachments, and rate-limited authentication flows.",
-    "Established 397 automated tests plus setup, deployment, backup, database, QA, and role-based user documentation.",
+    "Owned engineering handoff through setup, deployment, backup, database, QA, and role-based user documentation.",
   ],
 } as const;
 
