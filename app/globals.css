@@ -141,13 +141,46 @@ body:has([data-entry-locked="true"]) {
   pointer-events: none;
 }
 
+.hero-model-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 24px rgba(7, 5, 3, 0.72));
+}
+
+.hero-model-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9%;
+  width: min(48rem, 72vw);
+  height: 88%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 62%,
+    rgba(19, 14, 10, 0.74) 0%,
+    rgba(24, 18, 13, 0.48) 35%,
+    rgba(20, 14, 10, 0) 70%
+  );
+  filter: blur(18px);
+}
+
+.hero-model-canvas {
+  position: relative;
+  z-index: 1;
+}
+
 .hero-camp-light {
+  z-index: 2;
   background: radial-gradient(circle at 51% 36%, rgba(255, 222, 147, 0.3), transparent 30%);
   mix-blend-mode: screen;
   animation: hero-camp-light 5.5s ease-in-out infinite alternate;
 }
 
 .hero-camp-haze {
+  z-index: 3;
   inset: 16% -12% 34%;
   background: linear-gradient(
     100deg,
@@ -161,6 +194,7 @@ body:has([data-entry-locked="true"]) {
 }
 
 .hero-camp-dust {
+  z-index: 4;
   opacity: 0.38;
   background-image:
     radial-gradient(circle, rgba(255, 235, 190, 0.9) 0 1px, transparent 1.6px),
@@ -171,6 +205,7 @@ body:has([data-entry-locked="true"]) {
 }
 
 .hero-camp-vignette {
+  z-index: 5;
   background:
     linear-gradient(to bottom, rgba(20, 16, 12, 0.12), transparent 45%, rgba(20, 16, 12, 0.58)),
     radial-gradient(ellipse at center, transparent 44%, rgba(10, 7, 5, 0.48) 100%);
@@ -217,6 +252,10 @@ body:has([data-entry-locked="true"]) {
 @media (max-width: 640px) {
   .hero-camp-image {
     object-position: 46% center;
+  }
+
+  .hero-model-stage {
+    transform: translateY(4%) scale(0.9);
   }
 }
 

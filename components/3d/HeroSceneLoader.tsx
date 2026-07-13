@@ -1,4 +1,11 @@
+"use client";
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+const TripoHunterScene = dynamic(() => import("./TripoHunterScene"), {
+  ssr: false,
+});
 
 export default function HeroSceneLoader() {
   return (
@@ -11,6 +18,9 @@ export default function HeroSceneLoader() {
         sizes="100vw"
         className="hero-camp-image object-cover"
       />
+      <div className="hero-model-stage">
+        <TripoHunterScene />
+      </div>
       <div className="hero-camp-light" />
       <div className="hero-camp-haze" />
       <div className="hero-camp-dust" />
