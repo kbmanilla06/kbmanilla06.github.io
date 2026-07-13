@@ -8,6 +8,7 @@ const SOUNDTRACK_URL = "https://www.youtube.com/watch?v=p1fEV6QbCww";
 
 export default function MusicBoxControl() {
   const [open, setOpen] = useState(false);
+  const [hasOpened, setHasOpened] = useState(false);
   const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);
 
   return (
@@ -28,18 +29,20 @@ export default function MusicBoxControl() {
                 Press play in the official YouTube player. Playback remains optional and user-controlled.
               </p>
             </div>
-            <div className="mt-3 overflow-hidden rounded border border-[var(--color-brass-dark)] bg-black">
-              <iframe
-                className="aspect-video w-full"
-                src="https://www.youtube-nocookie.com/embed/p1fEV6QbCww?rel=0"
-                title="Proof of a Hero — official YouTube player"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                tabIndex={open ? 0 : -1}
-              />
-            </div>
+            {hasOpened && (
+              <div className="mt-3 overflow-hidden rounded border border-[var(--color-brass-dark)] bg-black">
+                <iframe
+                  className="aspect-video w-full"
+                  src="https://www.youtube-nocookie.com/embed/p1fEV6QbCww?rel=0"
+                  title="Proof of a Hero — official YouTube player"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  tabIndex={open ? 0 : -1}
+                />
+              </div>
+            )}
             <div className="mt-3 flex items-center justify-between gap-3 text-[0.68rem]">
               <span className="text-[var(--color-text-muted)]">Streamed by YouTube · not hosted here</span>
               <a
@@ -58,7 +61,10 @@ export default function MusicBoxControl() {
         type="button"
         aria-label={open ? "Close portfolio soundtrack" : "Open portfolio soundtrack"}
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          setHasOpened(true);
+          setOpen((v) => !v);
+        }}
         className="music-box-toggle guild-button"
       >
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--color-gold-bright)" strokeWidth="1.4">

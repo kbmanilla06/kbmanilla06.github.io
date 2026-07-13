@@ -57,6 +57,7 @@ export const QUESTS: Quest[] = [
     image: "/pictures/churn.png",
     tags: ["Python", "Scikit-learn", "XGBoost", "Streamlit"],
     repoUrl: "https://github.com/kbmanilla06/customer-churn-prediction",
+    caseStudyUrl: "/projects/customer-churn-prediction",
     status: "Completed",
     summary:
       "An end-to-end ML pipeline and Streamlit dashboard for identifying telecom customers at risk of churn.",
@@ -65,9 +66,9 @@ export const QUESTS: Quest[] = [
     role: "Designed and implemented the data generation, preprocessing, training, evaluation, and dashboard flow.",
     collaboration: "Individual project.",
     evidence: [
-      "SMOTE applied inside cross-validation to prevent leakage",
-      "Logistic Regression, Random Forest, and XGBoost comparison",
-      "Held-out evaluation with precision, recall, F1, and ROC-AUC",
+      "Reproduced on 5,000 records with a 21.8% positive class",
+      "Random Forest held-out F1 0.557 and ROC-AUC 0.807",
+      "SMOTE runs inside each cross-validation training fold",
     ],
   },
   {
