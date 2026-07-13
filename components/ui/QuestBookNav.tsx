@@ -30,9 +30,6 @@ export default function QuestBookNav() {
   const mobileNavOpen = useUIStore((s) => s.mobileNavOpen);
   const setMobileNavOpen = useUIStore((s) => s.setMobileNavOpen);
   const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);
-  const landingStage = useUIStore((s) => s.landingStage);
-  const navigationLocked =
-    pathname === "/" && (landingStage === "black" || landingStage === "gate");
 
   const playPageTurn = () => getAudioEngine().playSfx("pageTurn");
 
@@ -67,7 +64,7 @@ export default function QuestBookNav() {
 
   return (
     <motion.nav
-      className={`quest-nav ${navigationLocked ? "entry-locked" : ""}`}
+      className="quest-nav"
       aria-label="Guild navigation"
       initial={prefersReducedMotion ? false : { y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -76,11 +73,7 @@ export default function QuestBookNav() {
       <Link
         href={sectionHref("home")}
         className="quest-nav-logo"
-        onClick={(event) => {
-          if (navigationLocked) {
-            event.preventDefault();
-            return;
-          }
+        onClick={() => {
           playPageTurn();
           setActiveSection("home");
           setMobileNavOpen(false);
@@ -93,7 +86,7 @@ export default function QuestBookNav() {
           <span>Hunter&rsquo;s Field Guide</span>
           <strong>K.B. Manilla</strong>
         </span>
-        <span className="quest-nav-rank">HR 47</span>
+        <span className="quest-nav-rank">4TH YEAR</span>
       </Link>
 
       <div className="quest-nav-tabs desktop">
@@ -102,16 +95,10 @@ export default function QuestBookNav() {
             key={route.href}
             href={sectionHref(route.sectionId)}
             className={`quest-nav-tab ${route.cta ? "cta" : ""}`}
-            aria-disabled={navigationLocked || undefined}
-            tabIndex={navigationLocked ? -1 : undefined}
             aria-current={
               pathname === "/" && activeSection === route.sectionId ? "location" : undefined
             }
-            onClick={(event) => {
-              if (navigationLocked) {
-                event.preventDefault();
-                return;
-              }
+            onClick={() => {
               playPageTurn();
               setActiveSection(route.sectionId);
             }}
@@ -129,7 +116,6 @@ export default function QuestBookNav() {
         className="quest-nav-toggle"
         aria-label="Toggle navigation"
         aria-expanded={mobileNavOpen}
-        disabled={navigationLocked}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
       >
         <span
@@ -158,18 +144,12 @@ export default function QuestBookNav() {
               <Link
                 key={route.href}
                 href={sectionHref(route.sectionId)}
-                aria-disabled={navigationLocked || undefined}
-                tabIndex={navigationLocked ? -1 : undefined}
                 aria-current={
                   pathname === "/" && activeSection === route.sectionId
                     ? "location"
                     : undefined
                 }
-                onClick={(event) => {
-                  if (navigationLocked) {
-                    event.preventDefault();
-                    return;
-                  }
+                onClick={() => {
                   playPageTurn();
                   setActiveSection(route.sectionId);
                   setMobileNavOpen(false);

@@ -14,20 +14,20 @@ export default function Home() {
         <HeroSceneLoader />
         <LandingSequence />
       </section>
-      <section id="quests" className="portfolio-section" aria-label="Completed quests">
+      <section id="quests" className="portfolio-section" aria-label="Selected projects">
         <QuestsPage />
       </section>
-      <section id="about" className="portfolio-section" aria-label="Hunter profile">
+      <section id="about" className="portfolio-section" aria-label="Professional profile">
         <AboutPage />
       </section>
       <section id="armory" className="portfolio-section" aria-label="Skills and technology">
         <ArmoryPage />
       </section>
-      <section id="trophies" className="portfolio-section" aria-label="Achievements">
-        <TrophiesPage />
-      </section>
-      <section id="arsenal" className="portfolio-section" aria-label="Services">
+      <section id="arsenal" className="portfolio-section" aria-label="Experience and education">
         <ArsenalPage />
+      </section>
+      <section id="trophies" className="portfolio-section" aria-label="Academic honors">
+        <TrophiesPage />
       </section>
       <section id="contact" className="portfolio-section" aria-label="Contact">
         <ContactPage />

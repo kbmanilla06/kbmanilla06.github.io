@@ -8,53 +8,86 @@ export interface Quest {
   image: string;
   tags: string[];
   repoUrl: string;
-  status: "Cleared";
+  status: "Flagship" | "Completed" | "Team Project";
   summary: string;
+  context: string;
+  role: string;
+  collaboration: string;
+  evidence: string[];
   featured?: boolean;
 }
 
 export const QUESTS: Quest[] = [
   {
-    slug: "intrusion-detection-system",
+    slug: "timeforge",
     questNumber: "Quest 01",
-    rank: "HR Rank",
-    title: "Intrusion Detection System",
-    category: "Cybersecurity",
-    year: "2025",
-    image: "/pictures/ids.png",
-    tags: ["Security", "Intrusion", "Detection"],
-    repoUrl: "https://github.com/Mart271/ML-Enhanced-Intrusion-Detection",
-    status: "Cleared",
+    rank: "Flagship Build",
+    title: "TimeForge",
+    category: "Full-Stack Workforce SaaS",
+    year: "2026",
+    image: "/pictures/timeforge-landing.png",
+    tags: ["React", "TypeScript", "Laravel", "PostgreSQL", "Security"],
+    repoUrl: "https://github.com/kbmanilla06/TimeForge",
+    status: "Flagship",
     summary:
-      "A machine-learning-enhanced intrusion detection system built to track down anomalous network activity and flag threats before they escalate.",
+      "A workforce performance platform combining time tracking, approval workflows, KPIs, payroll preparation, reporting, onboarding, and auditable AI insights.",
+    context:
+      "Built from stakeholder requirements for StartupLab Business Center & AI Consulting Services OPC as an internship project.",
+    role:
+      "Full-stack implementation, architecture, security controls, test strategy, documentation, and technical delivery.",
+    collaboration:
+      "Stakeholder-led and AI-assisted; engineering decisions, review, validation, and delivery owned by me.",
+    evidence: [
+      "397 automated backend and frontend tests",
+      "Four roles enforced server-side with policies and middleware",
+      "80-commit, sprint-documented delivery history",
+      "PostgreSQL, Docker, GitHub Actions, backup and deployment runbooks",
+    ],
     featured: true,
   },
   {
-    slug: "natural-language-toolkit",
+    slug: "customer-churn-prediction",
     questNumber: "Quest 02",
     rank: "",
-    title: "Natural Language Toolkit",
-    category: "Web",
-    year: "2026",
-    image: "/pictures/nltk.png",
-    tags: ["NLP", "Machine Learning"],
-    repoUrl: "https://github.com/Jassim3nidad/NLTKBot",
-    status: "Cleared",
-    summary:
-      "An NLP-driven bot built on the Natural Language Toolkit, applying text processing and classification to real conversational input.",
-  },
-  {
-    slug: "customer-churn-prediction",
-    questNumber: "Quest 03",
-    rank: "",
     title: "Customer Churn Prediction",
-    category: "Data Analyst",
+    category: "Applied Machine Learning",
     year: "2026",
     image: "/pictures/churn.png",
-    tags: ["Machine Learning", "Python"],
+    tags: ["Python", "Scikit-learn", "XGBoost", "Streamlit"],
     repoUrl: "https://github.com/kbmanilla06/customer-churn-prediction",
-    status: "Cleared",
+    status: "Completed",
     summary:
-      "A predictive model trained to identify customers likely to churn, turning raw usage data into an early-warning signal.",
+      "An end-to-end ML pipeline and Streamlit dashboard for identifying telecom customers at risk of churn.",
+    context:
+      "Individual portfolio project using a reproducible synthetic telecom dataset and three-model comparison workflow.",
+    role: "Designed and implemented the data generation, preprocessing, training, evaluation, and dashboard flow.",
+    collaboration: "Individual project.",
+    evidence: [
+      "SMOTE applied inside cross-validation to prevent leakage",
+      "Logistic Regression, Random Forest, and XGBoost comparison",
+      "Held-out evaluation with precision, recall, F1, and ROC-AUC",
+    ],
+  },
+  {
+    slug: "natural-language-toolkit",
+    questNumber: "Quest 03",
+    rank: "",
+    title: "NLTKBot",
+    category: "Natural Language Processing",
+    year: "2026",
+    image: "/pictures/nltk.png",
+    tags: ["Python", "NLTK", "Flask", "NLP"],
+    repoUrl: "https://github.com/Jassim3nidad/NLTKBot",
+    status: "Team Project",
+    summary:
+      "A pattern-matching chatbot combining preprocessing, fuzzy matching, sentiment analysis, keyword extraction, and a Flask API.",
+    context: "Four-person academic project for Natural Language Processing at LPU Cavite.",
+    role: "Team member contributing to the chatbot implementation, integration, testing, and project delivery.",
+    collaboration: "Four-person team; repository maintained by Jassim Trinidad.",
+    evidence: [
+      "Thirty-eight intents with four-pass matching",
+      "VADER sentiment, POS tagging, and lemmatization",
+      "Flask REST API with web and CLI interfaces",
+    ],
   },
 ];

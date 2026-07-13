@@ -2,12 +2,23 @@
 
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useUIStore } from "@/store/uiStore";
 
 const TripoHunterScene = dynamic(() => import("./TripoHunterScene"), {
   ssr: false,
 });
 
 export default function HeroSceneLoader() {
+  const [showModel, setShowModel] = useState(false);
+  const prefersReducedMotion = useUIStore((state) => state.prefersReducedMotion);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+    const timer = window.setTimeout(() => setShowModel(true), 700);
+    return () => window.clearTimeout(timer);
+  }, [prefersReducedMotion]);
+
   return (
     <div className="hero-camp-backdrop h-[100svh] w-full" aria-hidden="true">
       <Image
@@ -18,9 +29,11 @@ export default function HeroSceneLoader() {
         sizes="100vw"
         className="hero-camp-image object-cover"
       />
-      <div className="hero-model-stage">
-        <TripoHunterScene />
-      </div>
+      {showModel && (
+        <div className="hero-model-stage">
+          <TripoHunterScene />
+        </div>
+      )}
       <div className="hero-camp-light" />
       <div className="hero-camp-haze" />
       <div className="hero-camp-dust" />

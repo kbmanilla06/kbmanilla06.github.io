@@ -5,51 +5,65 @@ export interface Skill {
   category: ArmoryCategory;
   description: string;
   loadoutStatus: "Primary" | "Active" | "Supporting";
-  usageMarks: number;
+  proof: string;
 }
 
 export const SKILLS: Skill[] = [
   {
-    name: "Python",
+    name: "TypeScript & React",
     category: "Weapons",
-    description: "Primary language across ML, data, and security projects.",
+    description: "Production-style SPA architecture, typed UI workflows, state, routing, charts, and component testing.",
     loadoutStatus: "Primary",
-    usageMarks: 5,
+    proof: "TimeForge frontend · 186 automated tests",
   },
   {
-    name: "SQL",
+    name: "Laravel & PHP",
     category: "Weapons",
-    description: "Querying and shaping data for analysis and prediction work.",
-    loadoutStatus: "Active",
-    usageMarks: 3,
+    description: "REST APIs, policies, middleware, validation, authentication, reporting, and background-ready services.",
+    loadoutStatus: "Primary",
+    proof: "TimeForge backend · 211 automated tests",
   },
   {
-    name: "Flutter & React",
+    name: "PostgreSQL & SQL",
     category: "Armor Sets",
-    description: "Cross-platform and web app frameworks for interface work.",
+    description: "Relational schema design, migrations, reporting queries, data integrity, and production configuration.",
     loadoutStatus: "Active",
-    usageMarks: 4,
+    proof: "TimeForge schema and Supabase-hosted PostgreSQL",
   },
   {
-    name: "Dart & Kotlin",
+    name: "Application Security",
     category: "Armor Sets",
-    description: "Mobile-first languages backing Flutter and native builds.",
-    loadoutStatus: "Supporting",
-    usageMarks: 2,
+    description: "Server-enforced RBAC, rate limiting, protected files, anti-enumeration flows, and auditability.",
+    loadoutStatus: "Active",
+    proof: "TimeForge authorization and security controls",
   },
   {
-    name: "Machine Learning",
+    name: "Python & Machine Learning",
     category: "Hunter Arts",
-    description: "Applied across intrusion detection, NLP, and churn prediction quests.",
+    description: "Reproducible preprocessing, model comparison, imbalance handling, evaluation, and interactive analysis.",
     loadoutStatus: "Primary",
-    usageMarks: 5,
+    proof: "Customer Churn Prediction and NLTKBot",
   },
   {
-    name: "HTML / CSS",
+    name: "Automated Testing",
+    category: "Hunter Arts",
+    description: "Unit, integration, authorization, and component tests used as delivery gates rather than afterthoughts.",
+    loadoutStatus: "Primary",
+    proof: "397 automated tests across TimeForge",
+  },
+  {
+    name: "Docker & CI",
     category: "Specialized Tools",
-    description: "Foundational tools for structuring and styling the web.",
+    description: "Documented container environments, automated checks, deployment preparation, and operational runbooks.",
     loadoutStatus: "Active",
-    usageMarks: 4,
+    proof: "Docker Compose and GitHub Actions in TimeForge",
+  },
+  {
+    name: "Next.js & Web UX",
+    category: "Specialized Tools",
+    description: "Responsive interfaces, server actions, validation, accessible interaction, animation, and performance-aware media.",
+    loadoutStatus: "Active",
+    proof: "This portfolio and production Vercel delivery",
   },
 ];
 

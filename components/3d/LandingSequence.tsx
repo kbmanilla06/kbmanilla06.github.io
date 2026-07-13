@@ -1,138 +1,76 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useUIStore } from "@/store/uiStore";
-import { useAudioStore } from "@/store/audioStore";
+import { useEffect } from "react";
 import GuildButton from "@/components/ui/GuildButton";
+import { PROFILE } from "@/lib/content/profile";
+import { useAudioStore } from "@/store/audioStore";
+import { useUIStore } from "@/store/uiStore";
+
+const PROOF_POINTS = [
+  "397 automated tests",
+  "4 server-enforced roles",
+  "3× Dean’s List",
+] as const;
 
 export default function LandingSequence() {
-  const container = useRef<HTMLDivElement>(null);
-  const overlay = useRef<HTMLDivElement>(null);
-  const gate = useRef<HTMLDivElement>(null);
-  const title = useRef<HTMLDivElement>(null);
-
-  const hydrated = useUIStore((s) => s.hydrated);
-  const landingStage = useUIStore((s) => s.landingStage);
-  const landingComplete = useUIStore((s) => s.landingComplete);
-  const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);
-  const setLandingStage = useUIStore((s) => s.setLandingStage);
-  const completeLanding = useUIStore((s) => s.completeLanding);
-  const enterGuild = useAudioStore((s) => s.enterGuild);
-  const entryLocked = landingStage === "black" || landingStage === "gate";
-
-  const { contextSafe } = useGSAP({ scope: container });
+  const completeLanding = useUIStore((state) => state.completeLanding);
+  const hasEnteredGuild = useAudioStore((state) => state.hasEnteredGuild);
+  const enterGuild = useAudioStore((state) => state.enterGuild);
 
   useEffect(() => {
-    if (!entryLocked) return;
-
-    const root = document.documentElement;
-    const body = document.body;
-    root.classList.add("guild-entry-locked");
-    body.classList.add("guild-entry-locked");
-    window.scrollTo(0, 0);
-
-    return () => {
-      root.classList.remove("guild-entry-locked");
-      body.classList.remove("guild-entry-locked");
-    };
-  }, [entryLocked]);
-
-  const handleEnter = contextSafe(() => {
-    enterGuild();
-    setLandingStage("campfire");
-
-    if (prefersReducedMotion) {
-      gsap.set(gate.current, { opacity: 0, pointerEvents: "none" });
-      gsap.set(overlay.current, { opacity: 0 });
-      gsap.set(title.current, { opacity: 1, y: 0 });
-      setLandingStage("title");
-      completeLanding();
-      return;
-    }
-
-    const tl = gsap.timeline();
-
-    tl.to(gate.current, { opacity: 0, duration: 0.3, pointerEvents: "none" })
-      .to(overlay.current, { opacity: 0, duration: 1.4, ease: "power2.out" }, "<")
-      .call(() => setLandingStage("hunter"))
-      .call(() => setLandingStage("fog"), undefined, "+=0.3")
-      .call(() => setLandingStage("title"), undefined, "+=0.3")
-      .fromTo(
-        title.current,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-      )
-      .call(() => completeLanding());
-  });
-
-  useGSAP(
-    () => {
-      if (!hydrated) return;
-      if (landingStage === "black") setLandingStage("gate");
-    },
-    { dependencies: [hydrated, landingStage], scope: container }
-  );
+    completeLanding();
+  }, [completeLanding]);
 
   return (
-    <div
-      ref={container}
-      className="pointer-events-none absolute inset-0 z-10"
-      data-entry-locked={entryLocked}
-    >
+    <div className="pointer-events-none absolute inset-0 z-10">
+      <div className="hero-copy-shade absolute inset-0" />
       <div
-        ref={overlay}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(20,16,12,0.12),rgba(0,0,0,0.62))]"
+        className="absolute inset-x-0 bottom-0 h-[42%]"
+        style={{ background: "linear-gradient(to bottom, transparent, var(--color-ink) 92%)" }}
       />
 
-      <div
-        className="absolute inset-x-0 bottom-0 h-[50%]"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, var(--color-ink) 78%)",
-        }}
-      />
+      <div className="hero-recruiter-copy absolute inset-x-0 bottom-10 px-6 sm:bottom-14">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-2xl">
+            <p className="hero-eyebrow">{PROFILE.guildCardSubtitle}</p>
+            <h1 className="mt-3 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl lg:text-6xl">
+              {PROFILE.name}
+            </h1>
+            <p className="mt-4 max-w-xl text-lg font-semibold leading-snug text-[var(--color-ivory)] sm:text-xl">
+              {PROFILE.headline}
+            </p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+              {PROFILE.tagline}
+            </p>
 
-      {!landingComplete && (
-        <div
-          ref={gate}
-          className="pointer-events-auto absolute inset-0 flex flex-col items-center justify-center gap-6 text-center px-6"
-        >
-          <p className="font-decorative text-sm uppercase tracking-[0.3em] text-[var(--color-gold)]">
-            Guild Card · BS Computer Science, LPU Cavite
-          </p>
-          <GuildButton variant="accent" brass onClick={handleEnter}>
-            Enter the Guild
-          </GuildButton>
-          <p className="text-xs text-[var(--color-text-muted)]">
-            Unlocks guild music &amp; ambience
-          </p>
-        </div>
-      )}
+            <ul className="mt-5 flex flex-wrap gap-2" aria-label="Portfolio highlights">
+              {PROOF_POINTS.map((proof) => (
+                <li key={proof} className="hero-proof-chip">
+                  {proof}
+                </li>
+              ))}
+            </ul>
 
-      <div
-        ref={title}
-        className="absolute inset-x-0 bottom-16 flex flex-col items-center gap-4 px-6 text-center opacity-0"
-      >
-        <h1 className="text-4xl sm:text-5xl text-[var(--color-gold-bright)]">
-          Khristopher Ben Manilla
-        </h1>
-        <p className="max-w-xl text-sm text-[var(--color-text-muted)] sm:text-base">
-          Aspiring cybersecurity hunter and software craftsman — tracking down
-          vulnerabilities, forging secure systems, and clearing every quest
-          with precision and care.
-        </p>
-        <div className="pointer-events-auto flex flex-wrap justify-center gap-3">
-          <GuildButton href="#quests" variant="accent" brass>
-            View Completed Quests
-          </GuildButton>
-          <GuildButton href="https://github.com/kbmanilla06" external>
-            GitHub
-          </GuildButton>
-          <GuildButton href="https://www.linkedin.com/in/khristopher-ben-manilla-b875181b6/" external>
-            LinkedIn
-          </GuildButton>
+            <div className="pointer-events-auto mt-6 flex flex-wrap gap-3">
+              <GuildButton href="#quests" variant="accent" brass>
+                View TimeForge
+              </GuildButton>
+              <GuildButton href={PROFILE.resume} external brass>
+                View Résumé
+              </GuildButton>
+              <GuildButton href={PROFILE.github} external>
+                GitHub
+              </GuildButton>
+              <GuildButton
+                type="button"
+                variant="ghost"
+                onClick={enterGuild}
+                disabled={hasEnteredGuild}
+              >
+                {hasEnteredGuild ? "Guild Ambience On" : "Enable Guild Ambience"}
+              </GuildButton>
+            </div>
+          </div>
         </div>
       </div>
     </div>

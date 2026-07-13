@@ -97,5 +97,3 @@ export default function TripoHunterScene() {
     </Canvas>
   );
 }
-
-useGLTF.preload(MODEL_PATH);

@@ -18,13 +18,13 @@ const CATEGORY_ICONS: Record<ArmoryCategory, React.ReactNode> = {
 };
 
 const HUNTER_STATUS = [
-  { label: "Current Rank", value: "BSCS Student", tone: "gold" },
-  { label: "Primary Focus", value: "Cybersecurity", tone: "green" },
-  { label: "Secondary Art", value: "AI & Machine Learning", tone: "blue" },
-  { label: "Current Quest", value: "Internship", tone: "red" },
+  { label: "Current Rank", value: "Fourth-Year BSCS", tone: "gold" },
+  { label: "Primary Focus", value: "Full-Stack Engineering", tone: "green" },
+  { label: "Supporting Focus", value: "Secure AI / ML", tone: "blue" },
+  { label: "Current Quest", value: "Internship Delivery", tone: "red" },
 ] as const;
 
-const FIELD_TRAITS = ["Secure systems", "ML workflows", "Interface craft", "Data analysis"];
+const FIELD_TRAITS = ["Evidence-led decisions", "Automated validation", "Secure by default", "Stakeholder translation"];
 
 export default function ArmoryPage() {
   return (
@@ -33,10 +33,9 @@ export default function ArmoryPage() {
         <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
           Equipment &amp; Status
         </p>
-        <h1 className="text-3xl sm:text-4xl text-[var(--color-ivory)]">Active Loadout</h1>
+        <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Skills backed by shipped work</h2>
         <p className="mt-3 max-w-2xl text-sm text-[var(--color-text-muted)]">
-          Project-backed tools arranged like a field equipment screen. Markers
-          show how central each tool is to the current loadout, not a mastery score.
+          No percentage bars or self-awarded mastery scores: every tool below points to project evidence, tests, or production delivery.
         </p>
       </RevealOnScroll>
 
@@ -63,15 +62,7 @@ export default function ArmoryPage() {
                       <span>{skill.loadoutStatus}</span>
                     </div>
                     <p>{skill.description}</p>
-                    <div
-                      className="armory-usage-marks"
-                      role="img"
-                      aria-label={`${skill.name}: ${skill.loadoutStatus} usage in the current loadout`}
-                    >
-                      {Array.from({ length: 5 }, (_, index) => (
-                        <span key={index} className={index < skill.usageMarks ? "filled" : ""} />
-                      ))}
-                    </div>
+                    <p className="armory-proof">Evidence: {skill.proof}</p>
                   </div>
                 </article>
               ))}
@@ -89,9 +80,9 @@ export default function ArmoryPage() {
             <LeatherFrame className="armory-status-card">
               <p className="armory-status-name">Khristopher Ben Manilla</p>
               <div className="armory-rank-line">
-                <span>HR</span>
+                <span>YEAR</span>
                 <div><i /></div>
-                <strong>47</strong>
+                <strong>4</strong>
               </div>
 
               <dl className="armory-status-list">

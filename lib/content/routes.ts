@@ -6,10 +6,10 @@ export interface GuildRoute {
 }
 
 export const GUILD_ROUTES: GuildRoute[] = [
-  { href: "/quests", sectionId: "quests", label: "Quests" },
-  { href: "/about", sectionId: "about", label: "Guild Card" },
-  { href: "/armory", sectionId: "armory", label: "Armory" },
-  { href: "/trophies", sectionId: "trophies", label: "Trophies" },
-  { href: "/arsenal", sectionId: "arsenal", label: "Arsenal" },
-  { href: "/contact", sectionId: "contact", label: "Send Request", cta: true },
+  { href: "/quests", sectionId: "quests", label: "Projects" },
+  { href: "/about", sectionId: "about", label: "Profile" },
+  { href: "/armory", sectionId: "armory", label: "Skills" },
+  { href: "/arsenal", sectionId: "arsenal", label: "Experience" },
+  { href: "/trophies", sectionId: "trophies", label: "Honors" },
+  { href: "/contact", sectionId: "contact", label: "Contact", cta: true },
 ];

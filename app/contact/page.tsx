@@ -18,14 +18,9 @@ export default function ContactPage() {
           <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
             Post a Request
           </p>
-          <h1 className="text-3xl sm:text-4xl text-[var(--color-ivory)]">
-            Form a hunting
-            <br />
-            party.
-          </h1>
+          <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Let&rsquo;s discuss the work.</h2>
           <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">
-            Open to internships, freelance projects, and interesting
-            collaborations. Send a request and I&rsquo;ll answer the call.
+            I am open to software engineering, full-stack, AI/ML, and application-security opportunities. Email is the fastest way to reach me.
           </p>
 
           <div className="mt-8 space-y-4">

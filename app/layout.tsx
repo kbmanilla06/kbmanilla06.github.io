@@ -29,17 +29,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Khristopher Ben Manilla — Hunter's Guild",
+    default: "Khristopher Ben Manilla — Full-Stack Software Engineer",
     template: "%s | Khristopher Ben Manilla",
   },
   description:
-    "Guild Card of Khristopher Ben Manilla — software engineer, AI engineer, and cybersecurity hunter. Explore completed quests, armory, and trophies.",
+    "Fourth-year Computer Science student and software engineering intern building secure, AI-enabled full-stack applications with React, TypeScript, Laravel, Python, and PostgreSQL.",
   authors: [{ name: "Khristopher Ben Manilla", url: SITE_URL }],
   creator: "Khristopher Ben Manilla",
   keywords: [
     "Khristopher Ben Manilla",
     "software developer",
-    "cybersecurity",
+    "full-stack engineer",
+    "React TypeScript Laravel",
+    "application security",
     "machine learning",
     "AI engineer",
     "portfolio",
@@ -49,10 +51,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    siteName: "Khristopher Ben Manilla — Hunter's Guild",
-    title: "Khristopher Ben Manilla — Hunter's Guild",
+    siteName: "Khristopher Ben Manilla — Software Engineering Portfolio",
+    title: "Khristopher Ben Manilla — Full-Stack Software Engineer",
     description:
-      "Software, AI, and cybersecurity work presented as a Hunter's Guild portfolio.",
+      "Secure full-stack applications, automated testing, and practical AI/ML work—presented with verifiable engineering evidence.",
     images: [
       {
         url: "/og.png",
@@ -64,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Khristopher Ben Manilla — Hunter's Guild",
-    description: "Software, AI, and cybersecurity portfolio.",
+    title: "Khristopher Ben Manilla — Full-Stack Software Engineer",
+    description: "Secure full-stack applications, automated testing, and practical AI/ML work.",
     images: ["/og.png"],
   },
 };

@@ -15,7 +15,7 @@ export default function TrophiesPage() {
         <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
           Guild Commendations
         </p>
-        <h1 className="text-3xl sm:text-4xl text-[var(--color-ivory)]">Trophies &amp; Medals</h1>
+        <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Academic honors</h2>
       </RevealOnScroll>
 
       <div className="mt-12 space-y-6">

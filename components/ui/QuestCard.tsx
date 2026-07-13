@@ -5,7 +5,7 @@ import GuildButton from "./GuildButton";
 
 export default function QuestCard({ quest }: { quest: Quest }) {
   return (
-    <article className="leather-frame relative flex flex-col overflow-hidden">
+    <article className={`leather-frame quest-card relative flex h-full flex-col overflow-hidden ${quest.featured ? "quest-card-featured" : ""}`}>
       <BrassCorner position="tl" />
       <BrassCorner position="tr" />
 
@@ -14,7 +14,7 @@ export default function QuestCard({ quest }: { quest: Quest }) {
           src={quest.image}
           alt={`${quest.title} preview`}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
+          sizes={quest.featured ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
           className="object-cover"
         />
         <span
@@ -36,6 +36,32 @@ export default function QuestCard({ quest }: { quest: Quest }) {
         </p>
         <p className="text-sm text-[var(--color-text-muted)]">{quest.summary}</p>
 
+        <dl className="quest-evidence-meta">
+          <div>
+            <dt>Context</dt>
+            <dd>{quest.context}</dd>
+          </div>
+          <div>
+            <dt>My role</dt>
+            <dd>{quest.role}</dd>
+          </div>
+          <div>
+            <dt>Collaboration</dt>
+            <dd>{quest.collaboration}</dd>
+          </div>
+        </dl>
+
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-gold)]">
+            Engineering evidence
+          </p>
+          <ul className="quest-evidence-list">
+            {quest.evidence.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+
         <div className="flex flex-wrap gap-2 pt-1">
           {quest.tags.map((tag) => (
             <span
@@ -49,7 +75,7 @@ export default function QuestCard({ quest }: { quest: Quest }) {
 
         <div className="mt-auto pt-3">
           <GuildButton href={quest.repoUrl} external brass>
-            View Quest Report
+            Review Repository
           </GuildButton>
         </div>
       </div>

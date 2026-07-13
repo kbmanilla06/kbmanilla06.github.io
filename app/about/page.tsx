@@ -22,11 +22,14 @@ export default function AboutPage() {
             </EngravedIcon>
             Hunter Profile
           </p>
-          <h1 className="text-3xl sm:text-4xl text-[var(--color-ivory)]">
-            Forging ideas into
-            <br />
-            real quests.
-          </h1>
+          <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">
+            Product-minded engineering, backed by validation.
+          </h2>
+          <dl className="mt-6 space-y-3 text-sm">
+            <div><dt className="text-[var(--color-gold)]">Location</dt><dd className="text-[var(--color-text-muted)]">{PROFILE.location}</dd></div>
+            <div><dt className="text-[var(--color-gold)]">Status</dt><dd className="text-[var(--color-text-muted)]">{PROFILE.rank}</dd></div>
+            <div><dt className="text-[var(--color-gold)]">Availability</dt><dd className="text-[var(--color-text-muted)]">{PROFILE.availability}</dd></div>
+          </dl>
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1}>
@@ -42,7 +45,7 @@ export default function AboutPage() {
                 <EngravedIcon>
                   <SwordIcon />
                 </EngravedIcon>
-                Weapon Loadout
+                Core Toolkit
               </p>
               <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {SKILLS.map((skill) => (

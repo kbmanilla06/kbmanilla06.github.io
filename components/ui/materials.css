@@ -219,13 +219,6 @@
   opacity: 0.5;
 }
 
-.quest-nav.entry-locked .quest-nav-logo,
-.quest-nav.entry-locked .quest-nav-tabs,
-.quest-nav.entry-locked .quest-nav-toggle {
-  opacity: 0.42;
-  pointer-events: none;
-}
-
 .quest-nav-logo {
   display: inline-flex;
   align-items: center;
@@ -561,6 +554,12 @@
   color: var(--color-text-muted);
   font-size: 0.72rem;
   line-height: 1.4;
+}
+
+.armory-skill-copy > .armory-proof {
+  margin-top: 0.42rem;
+  color: var(--color-brass-light);
+  font-size: 0.68rem;
 }
 
 .armory-usage-marks {

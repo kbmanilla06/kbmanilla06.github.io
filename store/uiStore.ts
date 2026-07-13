@@ -33,9 +33,8 @@ export const useUIStore = create<UIState>((set) => ({
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    // Every visitor still needs one gesture to unlock the AudioContext
-    // (browser autoplay policy), so the gate always shows — reduced
-    // motion only cuts the multi-stage GSAP timeline short after it.
+    // Audio remains opt-in because browsers require a user gesture, while the
+    // portfolio itself is immediately available and respects reduced motion.
     set({ prefersReducedMotion: reduced, hydrated: true });
   },
   setLandingStage: (stage) => set({ landingStage: stage }),
