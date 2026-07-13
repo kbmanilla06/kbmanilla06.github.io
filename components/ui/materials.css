@@ -1,0 +1,320 @@
+/* Shared material treatments for the Hunter's Guild UI system. */
+
+/* Static initial-hidden state for RevealOnScroll — a CSS class (not an
+   inline style) so it never fights the inline style GSAP sets once the
+   scroll reveal fires, even if the component re-renders afterward. */
+.reveal-hidden {
+  opacity: 0;
+}
+
+.guild-panel {
+  position: relative;
+  background: linear-gradient(
+    160deg,
+    var(--color-leather) 0%,
+    var(--color-leather-dark) 60%,
+    var(--color-iron) 100%
+  );
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-lift), var(--shadow-inset-bevel);
+  padding: 1.75rem;
+}
+
+.guild-panel::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(201, 163, 85, 0.25);
+  border-radius: calc(var(--radius-panel) - 2px);
+  pointer-events: none;
+}
+
+.leather-frame {
+  position: relative;
+  border: 2px solid var(--color-brass-dark);
+  border-radius: var(--radius-panel);
+  background: linear-gradient(155deg, var(--color-leather) 0%, var(--color-leather-dark) 100%);
+}
+
+.leather-frame::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(230, 217, 184, 0.28);
+  border-radius: calc(var(--radius-panel) - 2px);
+  pointer-events: none;
+}
+
+.parchment-surface {
+  position: relative;
+  background-color: var(--color-parchment);
+  background-image:
+    linear-gradient(165deg, rgba(255,255,255,0.12) 0%, rgba(0,0,0,0.06) 100%),
+    var(--parchment-noise-url, none);
+  background-blend-mode: overlay, normal;
+  background-size: cover, 96px 96px;
+  color: var(--color-parchment-ink);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-lift);
+}
+
+.brass-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(135deg, var(--color-gold-bright) 0%, var(--color-brass) 45%, var(--color-brass-dark) 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+.brass-corner.tl { top: -2px; left: -2px; clip-path: polygon(0 0, 100% 0, 0 100%); border-top-left-radius: 4px; }
+.brass-corner.tr { top: -2px; right: -2px; clip-path: polygon(100% 0, 100% 100%, 0 0); border-top-right-radius: 4px; }
+.brass-corner.bl { bottom: -2px; left: -2px; clip-path: polygon(0 0, 100% 100%, 0 100%); border-bottom-left-radius: 4px; }
+.brass-corner.br { bottom: -2px; right: -2px; clip-path: polygon(100% 0, 100% 100%, 0 100%); border-bottom-right-radius: 4px; }
+
+.corner-rivet {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--color-gold-bright), var(--color-brass-dark) 80%);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+.guild-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ivory);
+  background: linear-gradient(180deg, var(--color-leather) 0%, var(--color-leather-dark) 100%);
+  border: 1px solid var(--color-brass-dark);
+  border-radius: 4px;
+  padding: 0.7rem 1.3rem;
+  cursor: pointer;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.55),
+    0 4px 8px rgba(0, 0, 0, 0.45);
+  transition: transform 90ms ease, box-shadow 90ms ease, filter 200ms ease;
+  user-select: none;
+}
+
+.guild-button::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 8px;
+  background: radial-gradient(closest-side, rgba(232, 200, 120, 0.35), transparent 75%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.guild-button:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.guild-button:hover:not(:disabled)::after {
+  opacity: 1;
+}
+
+.guild-button:active:not(:disabled) {
+  transform: translateY(2px) scale(0.98);
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.guild-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guild-button.variant-accent {
+  background: linear-gradient(180deg, var(--color-brass) 0%, var(--color-brass-dark) 100%);
+  border-color: var(--color-gold-bright);
+  color: var(--color-parchment-ink);
+}
+
+.guild-button.variant-ghost {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(201, 163, 85, 0.35);
+}
+
+.engraved-icon {
+  position: relative;
+  display: inline-flex;
+  width: 1.1em;
+  height: 1.1em;
+}
+.engraved-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.engraved-icon .engrave-shadow {
+  position: absolute;
+  inset: 0;
+  transform: translate(0.5px, 1px);
+  opacity: 0.55;
+  filter: brightness(0);
+  z-index: 0;
+}
+.engraved-icon .engrave-face {
+  position: relative;
+  z-index: 1;
+}
+
+.wax-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #a8483b, var(--color-crimson) 75%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.wax-seal.stamped {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* ------------------------------------------------------------------ */
+/* Quest Book navigation                                               */
+/* ------------------------------------------------------------------ */
+
+.quest-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(180deg, var(--color-charcoal) 0%, var(--color-ink) 100%);
+  border-bottom: 3px solid var(--color-brass-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.quest-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ivory);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.quest-nav-rank {
+  font-family: var(--font-decorative);
+  font-size: 0.72rem;
+  color: var(--color-parchment-ink);
+  background: linear-gradient(180deg, var(--color-gold-bright), var(--color-brass));
+  padding: 0.18rem 0.5rem;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.quest-nav-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0.25rem;
+}
+
+.quest-nav-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 0.65rem 1.1rem;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  background: linear-gradient(180deg, var(--color-leather) 0%, var(--color-leather-dark) 100%);
+  border-top: 2px solid var(--color-brass-dark);
+  transition: color 150ms ease, filter 150ms ease, transform 90ms ease;
+}
+
+.quest-nav-tab:hover {
+  color: var(--color-ivory);
+  filter: brightness(1.15);
+}
+
+.quest-nav-tab:active {
+  transform: translateY(1px);
+}
+
+.quest-nav-tab[aria-current="page"] {
+  color: var(--color-gold-bright);
+  border-top-color: var(--color-gold-bright);
+  box-shadow: inset 0 -2px 0 var(--color-gold-bright);
+}
+
+.quest-nav-tab.cta {
+  background: linear-gradient(180deg, var(--color-brass) 0%, var(--color-brass-dark) 100%);
+  color: var(--color-parchment-ink);
+  font-weight: 700;
+}
+
+.quest-nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.quest-nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 1px;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+@media (max-width: 860px) {
+  .quest-nav-tabs.desktop {
+    display: none;
+  }
+  .quest-nav-toggle {
+    display: flex;
+  }
+}
+
+.quest-nav-mobile-panel {
+  position: fixed;
+  inset: 0 0 auto 0;
+  top: 60px;
+  z-index: 99;
+  background: linear-gradient(165deg, var(--color-leather) 0%, var(--color-ink) 100%);
+  border-bottom: 3px solid var(--color-brass-dark);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  transform-origin: top center;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.quest-nav-mobile-panel a {
+  padding: 0.9rem 0.5rem;
+  border-bottom: 1px solid rgba(201, 163, 85, 0.2);
+  color: var(--color-ivory);
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.quest-nav-mobile-panel a[aria-current="page"] {
+  color: var(--color-gold-bright);
+}
