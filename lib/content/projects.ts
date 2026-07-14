@@ -29,7 +29,7 @@ export const QUESTS: Quest[] = [
     image: "/pictures/timeforge-landing.png",
     tags: ["React", "TypeScript", "Laravel", "PostgreSQL", "Security"],
     repoUrl: "https://github.com/kbmanilla06/All-in-Time",
-    caseStudyUrl: "/projects/timeforge",
+    caseStudyUrl: "/projects/all-in-time",
     status: "Flagship",
     summary:
       "A workforce performance platform combining time tracking, approval workflows, KPIs, payroll preparation, reporting, onboarding, and auditable AI insights.",
