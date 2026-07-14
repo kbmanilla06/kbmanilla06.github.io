@@ -111,13 +111,12 @@ export default function AllInTimeCaseStudyPage() {
         <div className="case-study-preview relative mt-10 aspect-[16/9] overflow-hidden border border-[var(--color-brass-dark)] bg-[var(--color-iron)]">
           <Image
             src={ALL_IN_TIME.image}
-            alt="All in Time workforce dashboard"
+            alt="All in Time authentication interface"
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 1100px"
             className="object-cover"
           />
-          <span className="all-in-time-image-brand" aria-hidden="true">All in Time</span>
         </div>
       </header>
 
@@ -166,7 +165,6 @@ export default function AllInTimeCaseStudyPage() {
             <figure key={item.src}>
               <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-iron)]">
                 <Image src={item.src} alt={item.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-                <span className="all-in-time-image-brand" aria-hidden="true">All in Time</span>
               </div>
               <figcaption>
                 <strong>{item.title}</strong>

@@ -26,7 +26,7 @@ export const QUESTS: Quest[] = [
     title: "All in Time",
     category: "Full-Stack Workforce SaaS",
     year: "2026",
-    image: "/pictures/timeforge-dashboard.png",
+    image: "/pictures/timeforge-landing.png",
     tags: ["React", "TypeScript", "Laravel", "PostgreSQL", "Security"],
     repoUrl: "https://github.com/kbmanilla06/All-in-Time",
     caseStudyUrl: "/projects/timeforge",

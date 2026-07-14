@@ -541,27 +541,6 @@ html {
   box-shadow: var(--shadow-lift);
 }
 
-.all-in-time-image-brand {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  width: clamp(7.5rem, 18%, 13rem);
-  height: clamp(2.5rem, 8%, 4.5rem);
-  align-items: center;
-  padding-inline: 0.9rem;
-  border-right: 1px solid #d9dee9;
-  border-bottom: 1px solid #d9dee9;
-  background: #fff;
-  color: #111827;
-  font-family: var(--font-body);
-  font-size: clamp(0.72rem, 1.4vw, 1rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  box-shadow: 4px 4px 12px rgba(15, 23, 42, 0.08);
-}
-
 .case-study-gallery figcaption {
   display: grid;
   gap: 0.45rem;
