@@ -17,6 +17,9 @@ export default function QuestCard({ quest }: { quest: Quest }) {
           sizes={quest.featured ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
           className="object-cover"
         />
+        {quest.slug === "timeforge" && (
+          <span className="all-in-time-image-brand" aria-hidden="true">All in Time</span>
+        )}
         <span
           className="absolute right-0 top-3 bg-[var(--color-emerald)] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-ivory)] shadow-md"
           style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)" }}
