@@ -82,11 +82,11 @@ const WORKFLOW_GALLERY = [
 ] as const;
 
 const VERIFIED_LINKS = [
-  { label: "Passing CI run", href: "https://github.com/kbmanilla06/TimeForge/actions/runs/29262050052" },
-  { label: "Backend test suite", href: "https://github.com/kbmanilla06/TimeForge/tree/main/backend/tests" },
-  { label: "Frontend tests", href: "https://github.com/kbmanilla06/TimeForge/tree/main/frontend/src" },
-  { label: "Architecture decisions", href: "https://github.com/kbmanilla06/TimeForge/blob/main/docs/DECISIONS.md" },
-  { label: "Deployment runbook", href: "https://github.com/kbmanilla06/TimeForge/blob/main/docs/DEPLOYMENT.md" },
+  { label: "Passing CI run", href: "https://github.com/kbmanilla06/All-in-Time/actions/runs/29262050052" },
+  { label: "Backend test suite", href: "https://github.com/kbmanilla06/All-in-Time/tree/main/backend/tests" },
+  { label: "Frontend tests", href: "https://github.com/kbmanilla06/All-in-Time/tree/main/frontend/src" },
+  { label: "Architecture decisions", href: "https://github.com/kbmanilla06/All-in-Time/blob/main/docs/DECISIONS.md" },
+  { label: "Deployment runbook", href: "https://github.com/kbmanilla06/All-in-Time/blob/main/docs/DEPLOYMENT.md" },
 ] as const;
 
 export default function AllInTimeCaseStudyPage() {

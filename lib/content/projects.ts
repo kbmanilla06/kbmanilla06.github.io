@@ -28,7 +28,7 @@ export const QUESTS: Quest[] = [
     year: "2026",
     image: "/pictures/timeforge-landing.png",
     tags: ["React", "TypeScript", "Laravel", "PostgreSQL", "Security"],
-    repoUrl: "https://github.com/kbmanilla06/TimeForge",
+    repoUrl: "https://github.com/kbmanilla06/All-in-Time",
     caseStudyUrl: "/projects/timeforge",
     status: "Flagship",
     summary:
