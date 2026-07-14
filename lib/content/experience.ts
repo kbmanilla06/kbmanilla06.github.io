@@ -3,7 +3,7 @@ export const EXPERIENCE = {
   organization: "StartupLab Business Center & AI Consulting Services OPC",
   period: "2026 – Present",
   summary:
-    "Building TimeForge, a workforce performance management system shaped by stakeholder requirements and delivered as a documented full-stack MVP.",
+    "Building All in Time, a workforce performance management system shaped by stakeholder requirements and delivered as a documented full-stack MVP.",
   highlights: [
     "Translated a product requirements document into time tracking, approvals, KPIs, payroll preparation, reporting, onboarding, and AI-insight workflows.",
     "Implemented a Laravel and React/TypeScript architecture with PostgreSQL, four server-enforced roles, protected attachments, and rate-limited authentication flows.",

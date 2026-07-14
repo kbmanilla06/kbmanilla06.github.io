@@ -23,7 +23,7 @@ export const QUESTS: Quest[] = [
     slug: "timeforge",
     questNumber: "Project 01",
     rank: "Flagship Build",
-    title: "TimeForge",
+    title: "All in Time",
     category: "Full-Stack Workforce SaaS",
     year: "2026",
     image: "/pictures/timeforge-landing.png",

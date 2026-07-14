@@ -5,12 +5,12 @@ import GuildPanel from "@/components/ui/GuildPanel";
 import LeatherFrame from "@/components/ui/LeatherFrame";
 import { QUESTS } from "@/lib/content/projects";
 
-const TIMEFORGE = QUESTS.find((project) => project.slug === "timeforge")!;
+const ALL_IN_TIME = QUESTS.find((project) => project.slug === "timeforge")!;
 
 export const metadata: Metadata = {
-  title: "TimeForge Engineering Case Study",
+  title: "All in Time Engineering Case Study",
   description:
-    "Architecture, security, testing, and delivery decisions behind the TimeForge workforce management platform.",
+    "Architecture, security, testing, and delivery decisions behind the All in Time workforce management platform.",
 };
 
 const METRICS = [
@@ -57,25 +57,25 @@ const DECISIONS = [
 const WORKFLOW_GALLERY = [
   {
     src: "/pictures/timeforge-dashboard.png",
-    alt: "TimeForge workforce dashboard with attendance and payroll summaries",
+    alt: "All in Time workforce dashboard with attendance and payroll summaries",
     title: "Workforce dashboard",
     caption: "Department filters, attendance totals, payroll summary, and utilization reporting in one role-aware view.",
   },
   {
     src: "/pictures/timeforge-timesheet-review.png",
-    alt: "TimeForge supervisor timesheet review and approval controls",
+    alt: "All in Time supervisor timesheet review and approval controls",
     title: "Supervisor approval workflow",
     caption: "Expanded employee records expose pending entries, comments, approval, rejection, and revision requests.",
   },
   {
     src: "/pictures/timeforge-payroll.png",
-    alt: "TimeForge payroll preparation table and export controls",
+    alt: "All in Time payroll preparation table and export controls",
     title: "Payroll preparation",
     caption: "Approved, pending, rejected, attendance, and estimated-payroll data can be reviewed before export.",
   },
   {
     src: "/pictures/timeforge-audit-log.png",
-    alt: "TimeForge read-only audit log showing a successful login event",
+    alt: "All in Time read-only audit log showing a successful login event",
     title: "Audit trail",
     caption: "Sensitive actions are recorded with time, actor, action, subject, and metadata for traceability.",
   },
@@ -89,19 +89,19 @@ const VERIFIED_LINKS = [
   { label: "Deployment runbook", href: "https://github.com/kbmanilla06/TimeForge/blob/main/docs/DEPLOYMENT.md" },
 ] as const;
 
-export default function TimeForgeCaseStudyPage() {
+export default function AllInTimeCaseStudyPage() {
   return (
     <article className="case-study mx-auto max-w-6xl px-6 py-12 sm:py-20">
       <header className="case-study-hero">
         <div>
           <p className="text-sm uppercase tracking-[0.16em] text-[var(--color-gold)]">Flagship Case Study · 2026</p>
-          <h1 className="mt-4 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl">TimeForge</h1>
+          <h1 className="mt-4 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl">All in Time</h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-ivory)]">
             A secure workforce operations platform built from stakeholder requirements into a documented, testable full-stack MVP.
           </p>
-          <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-text-muted)]">{TIMEFORGE.summary}</p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-text-muted)]">{ALL_IN_TIME.summary}</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <GuildButton href={TIMEFORGE.repoUrl} external variant="accent" brass>
+            <GuildButton href={ALL_IN_TIME.repoUrl} external variant="accent" brass>
               Review Repository
             </GuildButton>
             <GuildButton href="/#quests" brass>Back to Projects</GuildButton>
@@ -110,8 +110,8 @@ export default function TimeForgeCaseStudyPage() {
 
         <div className="case-study-preview relative mt-10 aspect-[16/9] overflow-hidden border border-[var(--color-brass-dark)] bg-[var(--color-iron)]">
           <Image
-            src={TIMEFORGE.image}
-            alt="TimeForge authentication interface"
+            src={ALL_IN_TIME.image}
+            alt="All in Time authentication interface"
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 1100px"
