@@ -5,7 +5,8 @@ import { SITE_URL } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "/",
-    "/projects/timeforge",
+    "/projects/all-in-time",
+    "/projects/aegis",
     "/projects/customer-churn-prediction",
     ...GUILD_ROUTES.map(({ href }) => href),
   ];

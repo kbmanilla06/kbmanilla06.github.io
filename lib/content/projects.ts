@@ -93,4 +93,31 @@ export const QUESTS: Quest[] = [
       "Flask REST API with web and CLI interfaces",
     ],
   },
+  {
+    slug: "aegis",
+    questNumber: "Project 04",
+    rank: "Security Engineering",
+    title: "AegisAI NIDPS",
+    category: "Network Intrusion Detection & Prevention Simulation",
+    year: "2026",
+    image: "/pictures/aegis-preview.svg",
+    tags: ["Python", "FastAPI", "React", "PostgreSQL", "Celery", "Docker"],
+    repoUrl: "https://github.com/kbmanilla06/AegisAI-NIDPS",
+    caseStudyUrl: "/projects/aegis",
+    status: "Completed",
+    summary:
+      "A synthetic-only defensive platform for hostile-input telemetry ingestion, deterministic detection, analyst workflows, offline model evidence, and simulated prevention.",
+    context:
+      "An academic portfolio system built to demonstrate secure platform engineering, detection contracts, evidence provenance, reproducible testing, and honest security boundaries.",
+    role:
+      "Individual project owner responsible for architecture, threat modeling, backend and dashboard implementation, security controls, testing, CI, and documentation.",
+    collaboration:
+      "Individual, AI-assisted build; design decisions, validation, claims review, and delivery owned by me.",
+    evidence: [
+      "264 backend tests and 7 frontend tests passed in the Gate P5 evidence run",
+      "RBAC, CSRF/Origin enforcement, audit records, throttling, retention, and SHA-256 artifact integrity",
+      "Canonical JSONL, Zeek, Suricata EVE, and offline PCAP/PCAPNG ingestion boundaries",
+      "Prevention is compile/configuration-constrained to simulation with no network or host-state effects",
+    ],
+  },
 ];

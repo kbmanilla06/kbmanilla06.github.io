@@ -5,7 +5,7 @@ import { QUESTS } from "@/lib/content/projects";
 
 export const metadata: Metadata = {
   title: "Projects — Khristopher Ben Manilla",
-  description: "Selected full-stack, machine-learning, and NLP projects with engineering evidence.",
+  description: "Selected full-stack, cybersecurity, machine-learning, and NLP projects with engineering evidence.",
 };
 
 export default function QuestsPage() {

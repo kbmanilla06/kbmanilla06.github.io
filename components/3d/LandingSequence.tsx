@@ -49,7 +49,7 @@ export default function LandingSequence() {
             </ul>
 
             <div className="hero-cta-row pointer-events-auto mt-6 flex flex-wrap gap-3">
-              <GuildButton href="/projects/timeforge" variant="accent" brass>
+              <GuildButton href="/projects/all-in-time" variant="accent" brass>
                 All in Time Case Study
               </GuildButton>
               <GuildButton href={PROFILE.resume} download="Khristopher_Ben_Manilla_Resume.pdf" brass>

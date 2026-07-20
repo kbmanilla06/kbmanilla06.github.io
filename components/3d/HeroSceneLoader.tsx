@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useUIStore } from "@/store/uiStore";
 
-const TripoHunterScene = dynamic(() => import("./TripoHunterScene"), {
+const SplineCyberScene = dynamic(() => import("./SplineCyberScene"), {
   ssr: false,
 });
 
@@ -31,7 +31,7 @@ export default function HeroSceneLoader() {
       />
       {showModel && (
         <div className="hero-model-stage">
-          <TripoHunterScene />
+          <SplineCyberScene />
         </div>
       )}
       <div className="hero-camp-light" />
