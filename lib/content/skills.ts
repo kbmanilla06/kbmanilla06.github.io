@@ -1,68 +1,87 @@
-export type EngineeringCategory = "Frontend" | "Backend" | "Data" | "Security" | "AI & ML" | "Quality" | "Platform";
+/**
+ * Repository-verified tech stack.
+ *
+ * Every technology below is confirmed by a dependency manifest, configuration,
+ * import, schema, or CI workflow in either this portfolio repository or an
+ * accessible featured-project repository — not from résumé, profession, or prose.
+ *
+ * Evidence sources:
+ * - Portfolio (this repo): package.json, next.config.ts, postcss (Tailwind v4),
+ *   app/globals.css, component imports, app/actions/contact.ts, lib/email/*.
+ * - All in Time (github.com/kbmanilla06/All-in-Time): backend/composer.json,
+ *   frontend/package.json, docker-compose.yml, .github/workflows/ci.yml.
+ * - Customer Churn Prediction (github.com/kbmanilla06/customer-churn-prediction):
+ *   requirements.txt.
+ * - NLTKBot (github.com/Jassim3nidad/NLTKBot): requirements.txt.
+ * - AegisAI NIDPS (github.com/kbmanilla06/AegisAI-NIDPS): pyproject.toml,
+ *   apps/dashboard/package.json, docker-compose.yml, .github/workflows/ci.yml.
+ */
 
-export interface Skill {
+export type TechIconKey =
+  | "frontend"
+  | "backend"
+  | "database"
+  | "ai"
+  | "testing"
+  | "devops"
+  | "design"
+  | "integrations";
+
+export interface TechCategory {
   name: string;
-  category: EngineeringCategory;
-  description: string;
-  loadoutStatus: "Primary" | "Active" | "Supporting";
-  proof: string;
+  iconKey: TechIconKey;
+  /** Where these technologies are verified in the repositories. */
+  evidence: string;
+  technologies: string[];
 }
 
-export const SKILLS: Skill[] = [
+export const TECH_STACK: TechCategory[] = [
   {
-    name: "TypeScript & React",
-    category: "Frontend",
-    description: "Production-style SPA architecture, typed UI workflows, state, routing, charts, and component testing.",
-    loadoutStatus: "Primary",
-    proof: "All in Time frontend · 347 automated tests",
+    name: "Frontend",
+    iconKey: "frontend",
+    evidence: "This portfolio (Next.js) and the All in Time & AegisAI dashboards (React + Vite).",
+    technologies: ["Next.js", "React", "TypeScript", "Vite", "Tailwind CSS", "React Router", "Recharts"],
   },
   {
-    name: "Laravel & PHP",
-    category: "Backend",
-    description: "REST APIs, policies, middleware, validation, authentication, reporting, and background-ready services.",
-    loadoutStatus: "Primary",
-    proof: "All in Time backend · 370 automated tests",
+    name: "Backend",
+    iconKey: "backend",
+    evidence: "All in Time (Laravel / PHP), AegisAI (FastAPI + Celery), NLTKBot (Flask).",
+    technologies: ["Laravel", "PHP", "FastAPI", "Flask", "Node.js", "Celery"],
   },
   {
-    name: "PostgreSQL & SQL",
-    category: "Data",
-    description: "Relational schema design, migrations, reporting queries, data integrity, and production configuration.",
-    loadoutStatus: "Active",
-    proof: "All in Time schema and Supabase-hosted PostgreSQL",
+    name: "Database & Storage",
+    iconKey: "database",
+    evidence: "PostgreSQL and Redis in All in Time and AegisAI; SQLAlchemy and Alembic in AegisAI.",
+    technologies: ["PostgreSQL", "Redis", "SQLAlchemy", "Alembic"],
   },
   {
-    name: "Application Security",
-    category: "Security",
-    description: "Server-enforced RBAC, rate limiting, protected files, anti-enumeration flows, and auditability.",
-    loadoutStatus: "Active",
-    proof: "All in Time authorization and security controls",
+    name: "AI, ML & Data",
+    iconKey: "ai",
+    evidence: "Customer Churn Prediction (scikit-learn, XGBoost, SHAP, Streamlit) and NLTKBot (NLTK).",
+    technologies: ["Python", "scikit-learn", "XGBoost", "imbalanced-learn", "NLTK", "Streamlit", "SHAP"],
   },
   {
-    name: "Python & Machine Learning",
-    category: "AI & ML",
-    description: "Reproducible preprocessing, model comparison, imbalance handling, evaluation, and interactive analysis.",
-    loadoutStatus: "Primary",
-    proof: "Customer Churn Prediction and NLTKBot",
+    name: "Testing & Quality",
+    iconKey: "testing",
+    evidence: "PHPUnit and Vitest in All in Time, pytest in AegisAI, ESLint and Ruff across the codebases.",
+    technologies: ["PHPUnit", "Vitest", "Testing Library", "pytest", "ESLint", "Ruff"],
   },
   {
-    name: "Automated Testing",
-    category: "Quality",
-    description: "Unit, integration, authorization, and component tests used as delivery gates rather than afterthoughts.",
-    loadoutStatus: "Primary",
-    proof: "717 automated tests across All in Time",
+    name: "DevOps & Deployment",
+    iconKey: "devops",
+    evidence: "Docker Compose and GitHub Actions CI in All in Time and AegisAI; Vercel-hosted portfolio.",
+    technologies: ["Docker", "GitHub Actions", "Vercel", "Git"],
   },
   {
-    name: "Docker & CI",
-    category: "Platform",
-    description: "Containerized environments, automated checks, deployment preparation, and operational runbooks.",
-    loadoutStatus: "Active",
-    proof: "Docker Compose and GitHub Actions in All in Time",
+    name: "Design & 3D",
+    iconKey: "design",
+    evidence: "Interactive 3D hero (Spline) with Framer Motion and GSAP motion in this portfolio.",
+    technologies: ["Spline", "Framer Motion", "GSAP", "Lucide"],
   },
   {
-    name: "Next.js & Web UX",
-    category: "Frontend",
-    description: "Responsive interfaces, server actions, validation, accessible interaction, animation, and performance-aware media.",
-    loadoutStatus: "Active",
-    proof: "This portfolio and production Vercel delivery",
+    name: "Integrations & State",
+    iconKey: "integrations",
+    evidence: "Contact delivery via Resend / Nodemailer with Zod validation and Zustand state; Sentry monitoring in featured projects.",
+    technologies: ["Resend", "Nodemailer", "Sentry", "Zod", "Zustand"],
   },
 ];

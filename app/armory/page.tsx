@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { BrainCircuit, Code2, Container, Database, Monitor, ServerCog, ShieldCheck, TestTube2 } from "lucide-react";
+import { BrainCircuit, Code2, Container, Database, Server, Shapes, TestTube2, Workflow } from "lucide-react";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
-import { SKILLS } from "@/lib/content/skills";
+import { TECH_STACK, type TechIconKey } from "@/lib/content/skills";
 
 export const metadata: Metadata = {
-  title: "Technical Skills — Khristopher Ben Manilla",
-  description: "Technical skills backed by projects, testing, and production delivery.",
+  title: "Tech Stack — Khristopher Ben Manilla",
+  description: "The frameworks, libraries, and tools verified in this portfolio and its featured project repositories.",
 };
 
-const SKILL_ICONS: Record<string, React.ReactNode> = {
-  "TypeScript & React": <Code2 />,
-  "Laravel & PHP": <ServerCog />,
-  "PostgreSQL & SQL": <Database />,
-  "Application Security": <ShieldCheck />,
-  "Python & Machine Learning": <BrainCircuit />,
-  "Automated Testing": <TestTube2 />,
-  "Docker & CI": <Container />,
-  "Next.js & Web UX": <Monitor />,
+const CATEGORY_ICONS: Record<TechIconKey, React.ReactNode> = {
+  frontend: <Code2 />,
+  backend: <Server />,
+  database: <Database />,
+  ai: <BrainCircuit />,
+  testing: <TestTube2 />,
+  devops: <Container />,
+  design: <Shapes />,
+  integrations: <Workflow />,
 };
 
 const PROFILE_STATUS = [
@@ -28,28 +28,35 @@ const PROFILE_STATUS = [
 
 const STRENGTHS = ["Evidence-led decisions", "Automated validation", "Secure by default", "Stakeholder translation"];
 
+const TECH_COUNT = TECH_STACK.reduce((total, category) => total + category.technologies.length, 0);
+
 export default function ArmoryPage() {
   return (
     <div className="page-shell">
       <RevealOnScroll>
-        <p className="wdl-kicker">Technical profile</p>
-        <h2 className="section-title">Skills backed by shipped work</h2>
-        <p className="section-intro">Every capability below points to project evidence, automated tests, or delivered product work.</p>
+        <p className="wdl-kicker">Tech stack</p>
+        <h2 className="section-title">Tools verified in the work</h2>
+        <p className="section-intro">
+          Every technology below is confirmed in this portfolio&rsquo;s repository or in the public repositories of the featured
+          projects — through dependency manifests, configuration, imports, or CI workflows.
+        </p>
       </RevealOnScroll>
 
       <div className="skills-layout">
         <RevealOnScroll className="skills-list">
           <div className="skills-list-header">
-            <div><p className="wdl-kicker">Capabilities</p><h3>Technical skills</h3></div>
-            <span className="wdl-tag">{String(SKILLS.length).padStart(2, "0")} documented</span>
+            <div><p className="wdl-kicker">Repository-verified</p><h3>Technology stack</h3></div>
+            <span className="wdl-tag">{TECH_COUNT} technologies</span>
           </div>
-          {SKILLS.map((skill) => (
-            <article className="skill-row" key={skill.name}>
-              <div className="skill-icon" aria-hidden="true">{SKILL_ICONS[skill.name]}</div>
+          {TECH_STACK.map((category) => (
+            <article className="skill-row" key={category.name}>
+              <div className="skill-icon" aria-hidden="true">{CATEGORY_ICONS[category.iconKey]}</div>
               <div>
-                <div className="skill-heading"><h3>{skill.name}</h3><span>{skill.loadoutStatus}</span></div>
-                <p>{skill.description}</p>
-                <p className="skill-proof">Evidence: {skill.proof}</p>
+                <div className="skill-heading"><h3>{category.name}</h3><span>{category.technologies.length} tools</span></div>
+                <ul className="tech-tags" aria-label={`${category.name} technologies`}>
+                  {category.technologies.map((tech) => <li key={tech} className="wdl-tag">{tech}</li>)}
+                </ul>
+                <p className="skill-proof">Evidence: {category.evidence}</p>
               </div>
             </article>
           ))}

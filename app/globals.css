@@ -165,6 +165,8 @@ p { color: var(--wdl-text-secondary); }
 .skill-heading span { color: var(--wdl-text-muted); font-size: 12px; line-height: 16px; }
 .skill-row p { margin-top: 8px; font-size: 14px; line-height: 20px; }
 .skill-row .skill-proof { color: var(--wdl-action-primary); font-size: 12px; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; padding: 0; list-style: none; }
+.tech-tags .wdl-tag { color: var(--wdl-text-primary); }
 .profile-panel { position: sticky; top: 96px; border: 1px solid var(--wdl-border-strong); border-radius: var(--wdl-radius-lg); background: var(--wdl-surface-card); padding: 24px; box-shadow: var(--wdl-elevation-2); }
 .profile-panel h3 { margin-top: 8px; font-size: 20px; line-height: 28px; }
 .profile-panel dl { display: grid; gap: 16px; margin-top: 28px; }
