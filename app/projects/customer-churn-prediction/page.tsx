@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import GuildButton from "@/components/ui/GuildButton";
-import GuildPanel from "@/components/ui/GuildPanel";
-import LeatherFrame from "@/components/ui/LeatherFrame";
-import { QUESTS } from "@/lib/content/projects";
+import WdlButton from "@/components/ui/WdlButton";
+import WdlPanel from "@/components/ui/WdlPanel";
+import WdlCard from "@/components/ui/WdlCard";
+import { PROJECTS } from "@/lib/content/projects";
 
-const PROJECT = QUESTS.find((project) => project.slug === "customer-churn-prediction")!;
+const PROJECT = PROJECTS.find((project) => project.slug === "customer-churn-prediction")!;
 
 export const metadata: Metadata = {
   title: "Customer Churn ML Case Study",
@@ -57,15 +57,15 @@ export default function ChurnCaseStudyPage() {
   return (
     <article className="case-study mx-auto max-w-6xl px-6 py-12 sm:py-20">
       <header className="case-study-hero">
-        <p className="text-sm uppercase tracking-[0.16em] text-[var(--color-gold)]">Applied ML Case Study · Reproduced July 2026</p>
-        <h1 className="mt-4 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl">Customer Churn Prediction</h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-ivory)]">
+        <p className="text-sm uppercase tracking-[0.16em] text-[var(--wdl-text-muted)]">Applied ML Case Study · Reproduced July 2026</p>
+        <h1 className="mt-4 text-4xl leading-tight text-[var(--wdl-text-primary)] sm:text-5xl">Customer Churn Prediction</h1>
+        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--wdl-text-primary)]">
           A reproducible classification pipeline that prioritizes churn recall, prevents oversampling leakage, and makes model tradeoffs visible in a dashboard.
         </p>
-        <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-text-muted)]">{PROJECT.summary}</p>
+        <p className="mt-4 max-w-3xl leading-relaxed text-[var(--wdl-text-secondary)]">{PROJECT.summary}</p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <GuildButton href={PROJECT.repoUrl} external variant="accent" brass>Review Repository</GuildButton>
-          <GuildButton href="/#quests" brass>Back to Projects</GuildButton>
+          <WdlButton href={PROJECT.repoUrl} external variant="accent" >Review Repository</WdlButton>
+          <WdlButton href="/#quests" >Back to Projects</WdlButton>
         </div>
       </header>
 
@@ -74,20 +74,20 @@ export default function ChurnCaseStudyPage() {
       </section>
 
       <section className="case-study-section grid gap-6 lg:grid-cols-2">
-        <GuildPanel>
+        <WdlPanel>
           <p className="case-study-label">Problem</p>
           <h2>Find likely churners without hiding the cost tradeoff.</h2>
           <p>
             Churn is an imbalanced classification problem: missing an at-risk customer can be more costly than contacting a customer who would have stayed. The pipeline therefore reports precision and recall alongside F1 and ROC-AUC instead of relying on accuracy.
           </p>
-        </GuildPanel>
-        <GuildPanel>
+        </WdlPanel>
+        <WdlPanel>
           <p className="case-study-label">My Contribution</p>
           <h2>Data generation through interactive delivery.</h2>
           <p>
             I implemented the synthetic data generator, feature engineering, preprocessing, cross-validation, three model candidates, persisted artifacts, and four-page Streamlit dashboard as an individual project.
           </p>
-        </GuildPanel>
+        </WdlPanel>
       </section>
 
       <section className="case-study-section">
@@ -124,7 +124,7 @@ export default function ChurnCaseStudyPage() {
         <div className="case-study-gallery case-study-gallery-three">
           {GALLERY.map((item) => (
             <figure key={item.src}>
-              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-iron)]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--wdl-surface-base)]">
                 <Image src={item.src} alt={item.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
               <figcaption><strong>{item.title}</strong><span>{item.caption}</span></figcaption>
@@ -134,20 +134,20 @@ export default function ChurnCaseStudyPage() {
       </section>
 
       <section className="case-study-section grid gap-6 lg:grid-cols-2">
-        <LeatherFrame className="p-6 sm:p-8">
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">What the result supports</p>
           <h2>A learning and decision-support prototype</h2>
           <p>The project demonstrates an end-to-end ML workflow, class-imbalance handling, reproducibility, metric interpretation, and an interface for exploring model behavior.</p>
-        </LeatherFrame>
-        <LeatherFrame className="p-6 sm:p-8">
+        </WdlCard>
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">What it does not prove</p>
           <h2>No production claim from synthetic data</h2>
           <p>The labels come from programmed churn drivers, so the scores do not establish performance on real customers. Fairness, calibration, drift, privacy, and business-cost validation require real governed data.</p>
-        </LeatherFrame>
+        </WdlCard>
       </section>
 
       <section className="case-study-section">
-        <LeatherFrame className="p-6 sm:p-8">
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">Methodology Limitations</p>
           <h2>Three concrete improvements before stronger claims</h2>
           <ul className="evidence-bullet-list mt-5">
@@ -155,7 +155,7 @@ export default function ChurnCaseStudyPage() {
             <li>The dashboard uses a newer table-width API than the pinned Streamlit version on one page. Aligning the dependency and API is the next compatibility fix.</li>
             <li>Threshold tuning should use an explicit retention-cost function rather than the default 0.5 cutoff.</li>
           </ul>
-        </LeatherFrame>
+        </WdlCard>
       </section>
 
       <section className="case-study-section">

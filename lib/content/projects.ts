@@ -1,6 +1,6 @@
-export interface Quest {
+export interface Project {
   slug: string;
-  questNumber: string;
+  projectNumber: string;
   rank: string;
   title: string;
   category: string;
@@ -18,10 +18,10 @@ export interface Quest {
   featured?: boolean;
 }
 
-export const QUESTS: Quest[] = [
+export const PROJECTS: Project[] = [
   {
     slug: "timeforge",
-    questNumber: "Project 01",
+    projectNumber: "Project 01",
     rank: "Flagship Build",
     title: "All in Time",
     category: "Full-Stack Workforce SaaS",
@@ -49,7 +49,7 @@ export const QUESTS: Quest[] = [
   },
   {
     slug: "customer-churn-prediction",
-    questNumber: "Project 02",
+    projectNumber: "Project 02",
     rank: "",
     title: "Customer Churn Prediction",
     category: "Applied Machine Learning",
@@ -73,7 +73,7 @@ export const QUESTS: Quest[] = [
   },
   {
     slug: "natural-language-toolkit",
-    questNumber: "Project 03",
+    projectNumber: "Project 03",
     rank: "",
     title: "NLTKBot",
     category: "Natural Language Processing",
@@ -95,7 +95,7 @@ export const QUESTS: Quest[] = [
   },
   {
     slug: "aegis",
-    questNumber: "Project 04",
+    projectNumber: "Project 04",
     rank: "Security Engineering",
     title: "AegisAI NIDPS",
     category: "Network Intrusion Detection & Prevention Simulation",

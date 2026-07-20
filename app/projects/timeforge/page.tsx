@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import GuildButton from "@/components/ui/GuildButton";
-import GuildPanel from "@/components/ui/GuildPanel";
-import LeatherFrame from "@/components/ui/LeatherFrame";
-import { QUESTS } from "@/lib/content/projects";
+import WdlButton from "@/components/ui/WdlButton";
+import WdlPanel from "@/components/ui/WdlPanel";
+import WdlCard from "@/components/ui/WdlCard";
+import { PROJECTS } from "@/lib/content/projects";
 
-const ALL_IN_TIME = QUESTS.find((project) => project.slug === "timeforge")!;
+const ALL_IN_TIME = PROJECTS.find((project) => project.slug === "timeforge")!;
 
 export const metadata: Metadata = {
   title: "All in Time Engineering Case Study",
@@ -94,21 +94,21 @@ export default function AllInTimeCaseStudyPage() {
     <article className="case-study mx-auto max-w-6xl px-6 py-12 sm:py-20">
       <header className="case-study-hero">
         <div>
-          <p className="text-sm uppercase tracking-[0.16em] text-[var(--color-gold)]">Flagship Case Study · 2026</p>
-          <h1 className="mt-4 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl">All in Time</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-ivory)]">
+          <p className="text-sm uppercase tracking-[0.16em] text-[var(--wdl-text-muted)]">Flagship Case Study · 2026</p>
+          <h1 className="mt-4 text-4xl leading-tight text-[var(--wdl-text-primary)] sm:text-5xl">All in Time</h1>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--wdl-text-primary)]">
             A secure workforce operations platform built from stakeholder requirements into a documented, testable full-stack MVP.
           </p>
-          <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-text-muted)]">{ALL_IN_TIME.summary}</p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-[var(--wdl-text-secondary)]">{ALL_IN_TIME.summary}</p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <GuildButton href={ALL_IN_TIME.repoUrl} external variant="accent" brass>
+            <WdlButton href={ALL_IN_TIME.repoUrl} external variant="accent" >
               Review Repository
-            </GuildButton>
-            <GuildButton href="/#quests" brass>Back to Projects</GuildButton>
+            </WdlButton>
+            <WdlButton href="/#quests" >Back to Projects</WdlButton>
           </div>
         </div>
 
-        <div className="case-study-preview relative mt-10 aspect-[16/9] overflow-hidden border border-[var(--color-brass-dark)] bg-[var(--color-iron)]">
+        <div className="case-study-preview relative mt-10 aspect-[16/9] overflow-hidden border border-[var(--wdl-border-strong)] bg-[var(--wdl-surface-base)]">
           <Image
             src={ALL_IN_TIME.image}
             alt="All in Time authentication interface"
@@ -130,27 +130,27 @@ export default function AllInTimeCaseStudyPage() {
       </section>
 
       <section className="case-study-section grid gap-6 lg:grid-cols-2">
-        <GuildPanel>
+        <WdlPanel>
           <p className="case-study-label">Problem &amp; Context</p>
           <h2>A broad operational workflow needed one reliable system.</h2>
           <p>
             StartupLab Business Center &amp; AI Consulting Services OPC needed a platform covering workforce records, time tracking, approvals, performance, payroll preparation, reporting, and onboarding. The main engineering challenge was turning a large requirements document into coherent workflows without weakening authorization or traceability.
           </p>
-        </GuildPanel>
-        <GuildPanel>
+        </WdlPanel>
+        <WdlPanel>
           <p className="case-study-label">My Contribution</p>
           <h2>Full-stack implementation and technical delivery.</h2>
           <p>
             I owned architecture, implementation, security controls, automated testing, documentation, and technical handoff. The work was stakeholder-led and AI-assisted; engineering judgment, review, validation, and delivery remained my responsibility.
           </p>
-        </GuildPanel>
+        </WdlPanel>
       </section>
 
       <section className="case-study-section">
         <p className="case-study-label">Product Scope</p>
         <h2>Connected modules instead of isolated demos</h2>
         <div className="case-study-module-grid">
-          {MODULES.map((module) => <LeatherFrame key={module} className="p-5">{module}</LeatherFrame>)}
+          {MODULES.map((module) => <WdlCard key={module} className="p-5">{module}</WdlCard>)}
         </div>
       </section>
 
@@ -163,7 +163,7 @@ export default function AllInTimeCaseStudyPage() {
         <div className="case-study-gallery">
           {WORKFLOW_GALLERY.map((item) => (
             <figure key={item.src}>
-              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-iron)]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--wdl-surface-base)]">
                 <Image src={item.src} alt={item.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
               </div>
               <figcaption>
@@ -191,20 +191,20 @@ export default function AllInTimeCaseStudyPage() {
       </section>
 
       <section className="case-study-section grid gap-6 lg:grid-cols-2">
-        <LeatherFrame className="p-6 sm:p-8">
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">Security</p>
           <h2>Authorization is enforced beyond the interface</h2>
           <ul className="evidence-bullet-list mt-5">
             {SECURITY_CONTROLS.map((control) => <li key={control}>{control}</li>)}
           </ul>
-        </LeatherFrame>
-        <LeatherFrame className="p-6 sm:p-8">
+        </WdlCard>
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">Testing Strategy</p>
           <h2>Behavior, permissions, and regressions</h2>
           <p>
             The backend suite contains 370 unit and feature tests covering domain workflows, validation, and authorization. The frontend contains 347 component and interaction tests. Together, 717 automated tests act as delivery gates for the highest-risk behavior.
           </p>
-        </LeatherFrame>
+        </WdlCard>
       </section>
 
       <section className="case-study-section">
@@ -212,22 +212,22 @@ export default function AllInTimeCaseStudyPage() {
         <h2>Tradeoffs made for security, explainability, and delivery</h2>
         <div className="mt-7 grid gap-5 lg:grid-cols-3">
           {DECISIONS.map((decision) => (
-            <GuildPanel key={decision.title} className="h-full">
-              <h3 className="text-lg text-[var(--color-ivory)]">{decision.title}</h3>
+            <WdlPanel key={decision.title} className="h-full">
+              <h3 className="text-lg text-[var(--wdl-text-primary)]">{decision.title}</h3>
               <p className="mt-4">{decision.detail}</p>
-            </GuildPanel>
+            </WdlPanel>
           ))}
         </div>
       </section>
 
       <section className="case-study-section">
-        <LeatherFrame className="p-6 sm:p-8">
+        <WdlCard className="p-6 sm:p-8">
           <p className="case-study-label">Current Maturity &amp; Next Steps</p>
           <h2>An honest boundary around the MVP</h2>
           <p>
             The current build is designed for one organization, uses deterministic local insights, and does not yet include multi-tenancy, external-model integration, or malware scanning for uploads. The next production-hardening steps are queued background processing, stronger file scanning, broader observability, and validated multi-organization isolation if the product scope expands.
           </p>
-        </LeatherFrame>
+        </WdlCard>
       </section>
 
       <section className="case-study-section">

@@ -1,7 +1,7 @@
 export interface Achievement {
   id: string;
   years: string;
-  hunterRank: string;
+  distinction: string;
   title: string;
   org: string;
   description: string;
@@ -11,7 +11,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "deans-list-three-years",
     years: "2023 – 2026",
-    hunterRank: "Three Consecutive Academic Years",
+    distinction: "Three Consecutive Academic Years",
     title: "Dean’s List Awardee",
     org: "Lyceum of the Philippines University – Cavite",
     description:

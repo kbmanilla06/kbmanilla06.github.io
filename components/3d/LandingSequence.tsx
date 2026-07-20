@@ -1,9 +1,5 @@
-"use client";
-
-import { useEffect } from "react";
-import GuildButton from "@/components/ui/GuildButton";
+import WdlButton from "@/components/ui/WdlButton";
 import { PROFILE } from "@/lib/content/profile";
-import { useUIStore } from "@/store/uiStore";
 
 const PROOF_POINTS = [
   "717 automated tests",
@@ -12,49 +8,38 @@ const PROOF_POINTS = [
 ] as const;
 
 export default function LandingSequence() {
-  const completeLanding = useUIStore((state) => state.completeLanding);
-
-  useEffect(() => {
-    completeLanding();
-  }, [completeLanding]);
-
   return (
-    <div className="pointer-events-none absolute inset-0 z-10">
+    <div className="pointer-events-none absolute inset-0 z-10 flex items-center">
       <div className="hero-copy-shade absolute inset-0" />
-      <div
-        className="absolute inset-x-0 bottom-0 h-[42%]"
-        style={{ background: "linear-gradient(to bottom, transparent, var(--color-ink) 92%)" }}
-      />
-
-      <div className="hero-recruiter-copy absolute inset-x-0 bottom-10 px-6 sm:bottom-14">
-        <div className="mx-auto max-w-6xl">
+      <div className="hero-recruiter-copy w-full px-6">
+        <div className="mx-auto max-w-[1440px]">
           <div className="max-w-2xl">
-            <p className="hero-eyebrow">{PROFILE.guildCardSubtitle}</p>
-            <h1 className="mt-3 text-4xl leading-tight text-[var(--color-gold-bright)] sm:text-5xl lg:text-6xl">
+            <p className="wdl-kicker">{PROFILE.portfolioSubtitle}</p>
+            <h1 className="mt-5 text-4xl font-bold leading-tight text-[var(--wdl-text-primary)] sm:text-5xl lg:text-6xl">
               {PROFILE.name}
             </h1>
-            <p className="mt-4 max-w-xl text-lg font-semibold leading-snug text-[var(--color-ivory)] sm:text-xl">
+            <p className="mt-5 max-w-xl text-lg font-medium leading-relaxed text-[var(--wdl-text-primary)] sm:text-xl">
               {PROFILE.headline}
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--wdl-text-secondary)] sm:text-base">
               {PROFILE.tagline}
             </p>
 
             <ul className="mt-5 flex flex-wrap gap-2" aria-label="Portfolio highlights">
               {PROOF_POINTS.map((proof) => (
-                <li key={proof} className="hero-proof-chip">
+                <li key={proof} className="wdl-tag">
                   {proof}
                 </li>
               ))}
             </ul>
 
             <div className="hero-cta-row pointer-events-auto mt-6 flex flex-wrap gap-3">
-              <GuildButton href="/projects/all-in-time" variant="accent" brass>
+              <WdlButton href="/projects/all-in-time" variant="accent">
                 All in Time Case Study
-              </GuildButton>
-              <GuildButton href={PROFILE.resume} download="Khristopher_Ben_Manilla_Resume.pdf" brass>
+              </WdlButton>
+              <WdlButton href={PROFILE.resume} download="Khristopher_Ben_Manilla_Resume.pdf">
                 Download Résumé
-              </GuildButton>
+              </WdlButton>
             </div>
           </div>
         </div>

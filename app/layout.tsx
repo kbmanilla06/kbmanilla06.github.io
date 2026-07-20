@@ -1,24 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Cinzel, Cinzel_Decorative, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import AudioProvider from "@/components/audio/AudioProvider";
 import PerformanceProvider from "@/components/PerformanceProvider";
-import QuestBookNav from "@/components/ui/QuestBookNav";
-import GuildFooter from "@/components/sections/GuildFooter";
+import PortfolioNav from "@/components/ui/PortfolioNav";
+import PortfolioFooter from "@/components/sections/PortfolioFooter";
 import { SITE_URL } from "@/lib/site";
-
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const cinzelDecorative = Cinzel_Decorative({
-  variable: "--font-cinzel-decorative",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -57,7 +45,7 @@ export const metadata: Metadata = {
       "Secure full-stack applications, automated testing, and practical AI/ML work—presented with verifiable engineering evidence.",
     images: [
       {
-        url: "/og.png",
+        url: "/og-wdl.svg",
         width: 1200,
         height: 630,
         alt: "Khristopher Ben Manilla — Full-Stack Software Engineer",
@@ -68,12 +56,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Khristopher Ben Manilla — Full-Stack Software Engineer",
     description: "Secure full-stack applications, automated testing, and practical AI/ML work.",
-    images: ["/og.png"],
+    images: ["/og-wdl.svg"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#14100c",
+  themeColor: "#05070a",
 };
 
 export default function RootLayout({
@@ -83,17 +71,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${cinzel.variable} ${cinzelDecorative.variable} ${inter.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         <PerformanceProvider />
         <AudioProvider />
-        <QuestBookNav />
+        <PortfolioNav />
         <main id="main-content">{children}</main>
-        <GuildFooter />
+        <PortfolioFooter />
         <Analytics />
       </body>
     </html>

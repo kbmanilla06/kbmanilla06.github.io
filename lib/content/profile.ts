@@ -1,7 +1,7 @@
 export const PROFILE = {
   name: "Khristopher Ben Manilla",
   rank: "Fourth-Year BSCS",
-  guildCardSubtitle: "Fourth-Year Computer Science Student · Software Engineering Intern",
+  portfolioSubtitle: "Fourth-Year Computer Science Student · Software Engineering Intern",
   headline: "Full-stack engineer building secure, AI-enabled workforce tools.",
   tagline:
     "I build and validate practical web applications with React, TypeScript, Laravel, Python, and PostgreSQL, with application security and machine learning as supporting strengths.",

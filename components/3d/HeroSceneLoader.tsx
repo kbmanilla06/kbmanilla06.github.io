@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useUIStore } from "@/store/uiStore";
 
@@ -20,24 +19,15 @@ export default function HeroSceneLoader() {
   }, [prefersReducedMotion]);
 
   return (
-    <div className="hero-camp-backdrop w-full" aria-hidden="true">
-      <Image
-        src="/pictures/hunter-camp.webp"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="hero-camp-image object-cover"
-      />
+    <div className="hero-visual w-full" aria-hidden="true">
+      <div className="hero-grid" />
+      <div className="hero-orbit hero-orbit-one" />
+      <div className="hero-orbit hero-orbit-two" />
       {showModel && (
         <div className="hero-model-stage">
           <SplineCyberScene />
         </div>
       )}
-      <div className="hero-camp-light" />
-      <div className="hero-camp-haze" />
-      <div className="hero-camp-dust" />
-      <div className="hero-camp-vignette" />
     </div>
   );
 }

@@ -18,7 +18,7 @@ export interface ContactState {
   fieldErrors?: Record<string, string>;
 }
 
-export async function submitQuestRequest(
+export async function submitContactRequest(
   _prevState: ContactState,
   formData: FormData
 ): Promise<ContactState> {
@@ -27,7 +27,7 @@ export async function submitQuestRequest(
   // the mail-sending path.
   const honeypot = formData.get("company")?.toString().trim() ?? "";
   if (honeypot.length > 0) {
-    return { status: "success", message: "Your request has been sealed and sent to the Guild." };
+    return { status: "success", message: "Your message was sent successfully." };
   }
 
   const parsed = ContactSchema.safeParse({
@@ -64,23 +64,23 @@ export async function submitQuestRequest(
   try {
     if (resend) {
       const result = await resend.emails.send({
-        from: "Guild Reception <onboarding@resend.dev>",
+        from: "Portfolio Contact <onboarding@resend.dev>",
         to,
         replyTo: email,
-        subject: `[Guild Request] ${subject}`,
+        subject: `[Portfolio Contact] ${subject}`,
         text: textBody,
       });
       if (result.error) throw new Error(result.error.message);
     } else if (smtp) {
       await smtp.sendMail({
-        from: `"Guild Reception" <${process.env.SMTP_USER}>`,
+        from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
         to,
         replyTo: email,
-        subject: `[Guild Request] ${subject}`,
+        subject: `[Portfolio Contact] ${subject}`,
         text: textBody,
       });
     }
-    return { status: "success", message: "Your request has been sealed and sent to the Guild." };
+    return { status: "success", message: "Your message was sent successfully." };
   } catch (err) {
     console.error("[contact] send failed", err);
     return {

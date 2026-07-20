@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import { CodeXml, Mail, Network } from "lucide-react";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
-import GuildReceptionForm from "@/components/sections/GuildReceptionForm";
-import EngravedIcon from "@/components/ui/EngravedIcon";
-import { MailIcon, LinkedInIcon, GitHubIcon } from "@/components/ui/icons";
+import ContactForm from "@/components/sections/ContactForm";
 import { PROFILE } from "@/lib/content/profile";
 
 export const metadata: Metadata = {
@@ -10,57 +9,29 @@ export const metadata: Metadata = {
   description: "Contact Khristopher Ben Manilla about software engineering opportunities.",
 };
 
+const CONTACT_LINKS = [
+  { label: PROFILE.email, href: `mailto:${PROFILE.email}`, icon: Mail, external: false },
+  { label: "LinkedIn profile", href: PROFILE.linkedin, icon: Network, external: true },
+  { label: "GitHub profile", href: PROFILE.github, icon: CodeXml, external: true },
+] as const;
+
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
-      <div className="grid gap-12 sm:grid-cols-2">
+    <div className="page-shell">
+      <div className="contact-layout">
         <RevealOnScroll>
-          <p className="mb-3 text-sm uppercase tracking-wide text-[var(--color-gold)]">
-            Contact
-          </p>
-          <h2 className="text-3xl text-[var(--color-ivory)] sm:text-4xl">Let&rsquo;s discuss the work.</h2>
-          <p className="mt-4 max-w-md text-sm text-[var(--color-text-muted)]">
-            I am open to software engineering, full-stack, AI/ML, and application-security opportunities. Email is the fastest way to reach me.
-          </p>
-
-          <div className="mt-8 space-y-4">
-            <a
-              href={`mailto:${PROFILE.email}`}
-              className="flex items-center gap-3 text-sm text-[var(--color-ivory)] hover:text-[var(--color-gold-bright)]"
-            >
-              <EngravedIcon>
-                <MailIcon />
-              </EngravedIcon>
-              {PROFILE.email}
-            </a>
-            <a
-              href={PROFILE.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-sm text-[var(--color-ivory)] hover:text-[var(--color-gold-bright)]"
-            >
-              <EngravedIcon>
-                <LinkedInIcon />
-              </EngravedIcon>
-              linkedin.com/in/khristopher-ben-manilla
-            </a>
-            <a
-              href={PROFILE.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-sm text-[var(--color-ivory)] hover:text-[var(--color-gold-bright)]"
-            >
-              <EngravedIcon>
-                <GitHubIcon />
-              </EngravedIcon>
-              github.com/kbmanilla06
-            </a>
+          <p className="wdl-kicker">Contact</p>
+          <h2 className="section-title">Let&rsquo;s discuss the work.</h2>
+          <p className="section-intro">I am open to software engineering, full-stack, AI/ML, and application-security opportunities. Email is the fastest way to reach me.</p>
+          <div className="contact-links">
+            {CONTACT_LINKS.map(({ label, href, icon: Icon, external }) => (
+              <a key={href} href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+                <Icon aria-hidden="true" /><span>{label}</span><span aria-hidden="true">↗</span>
+              </a>
+            ))}
           </div>
         </RevealOnScroll>
-
-        <RevealOnScroll delay={0.1}>
-          <GuildReceptionForm />
-        </RevealOnScroll>
+        <RevealOnScroll delay={0.1}><ContactForm /></RevealOnScroll>
       </div>
     </div>
   );

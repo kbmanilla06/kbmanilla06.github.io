@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { GUILD_ROUTES } from "@/lib/content/routes";
+import { PORTFOLIO_ROUTES } from "@/lib/content/routes";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/projects/all-in-time",
     "/projects/aegis",
     "/projects/customer-churn-prediction",
-    ...GUILD_ROUTES.map(({ href }) => href),
+    ...PORTFOLIO_ROUTES.map(({ href }) => href),
   ];
 
   return routes.map((route) => ({

@@ -31,7 +31,7 @@ export const usePerformanceStore = create<PerformanceState>()(
       },
     }),
     {
-      name: "guild-performance",
+      name: "portfolio-performance",
       partialize: (state) => ({ manualLowFi: state.manualLowFi }),
     }
   )

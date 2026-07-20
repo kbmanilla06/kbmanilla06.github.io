@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { QUESTS } from "@/lib/content/projects";
+import { PROJECTS } from "@/lib/content/projects";
 
-const PROJECT = QUESTS.find((project) => project.slug === "aegis")!;
+const PROJECT = PROJECTS.find((project) => project.slug === "aegis")!;
 
 export const metadata: Metadata = {
   title: "AegisAI NIDPS Security Engineering Case Study",
