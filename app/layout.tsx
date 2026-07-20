@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import PerformanceProvider from "@/components/PerformanceProvider";
@@ -72,11 +71,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <Script
-          type="module"
-          src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"
-          strategy="afterInteractive"
-        />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
