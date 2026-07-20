@@ -6,6 +6,7 @@ import AudioProvider from "@/components/audio/AudioProvider";
 import PerformanceProvider from "@/components/PerformanceProvider";
 import PortfolioNav from "@/components/ui/PortfolioNav";
 import PortfolioFooter from "@/components/sections/PortfolioFooter";
+import GlobalSplineBackground from "@/components/3d/GlobalSplineBackground";
 import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
@@ -72,6 +73,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
+        <script
+          type="module"
+          src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"
+        />
+        <GlobalSplineBackground />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
