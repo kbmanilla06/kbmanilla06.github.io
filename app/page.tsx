@@ -1,4 +1,4 @@
-import HeroSceneLoader from "@/components/3d/HeroSceneLoader";
+import HeroModel from "@/components/3d/HeroModel";
 import LandingSequence from "@/components/3d/LandingSequence";
 import QuestsPage from "@/app/quests/page";
 import AboutPage from "@/app/about/page";
@@ -10,9 +10,11 @@ import ContactPage from "@/app/contact/page";
 export default function Home() {
   return (
     <div>
-      <section id="home" className="portfolio-section relative" aria-label="Introduction">
-        <HeroSceneLoader />
-        <LandingSequence />
+      <section id="home" className="portfolio-section hero-section" aria-label="Introduction">
+        <div className="hero-grid">
+          <LandingSequence />
+          <HeroModel />
+        </div>
       </section>
       <section id="quests" className="portfolio-section" aria-label="Selected projects">
         <QuestsPage />

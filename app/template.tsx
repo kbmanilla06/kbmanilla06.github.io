@@ -4,12 +4,9 @@ import { motion } from "framer-motion";
 import { useUIStore } from "@/store/uiStore";
 
 /**
- * Per-route transition wrapper. Deliberately separate from
- * app/layout.tsx: template.tsx remounts on every navigation (what gives
- * each route its own enter animation), while layout.tsx stays mounted
- * across navigations (what keeps the audio graph / AudioContext alive).
- * Collapsing these into one file would kill the audio graph on every
- * nav — do not merge them.
+ * Per-route transition wrapper. Deliberately separate from app/layout.tsx:
+ * template.tsx remounts on every navigation (what gives each route its own
+ * enter animation), while layout.tsx stays mounted across navigations.
  */
 export default function Template({ children }: { children: React.ReactNode }) {
   const prefersReducedMotion = useUIStore((s) => s.prefersReducedMotion);

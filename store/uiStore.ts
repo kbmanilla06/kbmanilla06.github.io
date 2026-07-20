@@ -17,8 +17,6 @@ export const useUIStore = create<UIState>((set) => ({
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    // Audio remains opt-in because browsers require a user gesture, while the
-    // portfolio itself is immediately available and respects reduced motion.
     set({ prefersReducedMotion: reduced, hydrated: true });
   },
   setMobileNavOpen: (open) => set({ mobileNavOpen: open }),

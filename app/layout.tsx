@@ -1,12 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AudioProvider from "@/components/audio/AudioProvider";
 import PerformanceProvider from "@/components/PerformanceProvider";
 import PortfolioNav from "@/components/ui/PortfolioNav";
 import PortfolioFooter from "@/components/sections/PortfolioFooter";
-import GlobalSplineBackground from "@/components/3d/GlobalSplineBackground";
 import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
@@ -73,16 +72,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
-        <script
+        <Script
           type="module"
           src="https://unpkg.com/@splinetool/viewer@1.9.0/build/spline-viewer.js"
+          strategy="afterInteractive"
         />
-        <GlobalSplineBackground />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         <PerformanceProvider />
-        <AudioProvider />
         <PortfolioNav />
         <main id="main-content">{children}</main>
         <PortfolioFooter />
