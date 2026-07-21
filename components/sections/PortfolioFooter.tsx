@@ -1,4 +1,5 @@
 import { CodeXml, Network } from "lucide-react";
+import DirectionalLink from "@/components/ui/DirectionalLink";
 
 export default function PortfolioFooter() {
   return (
@@ -6,8 +7,8 @@ export default function PortfolioFooter() {
       <div>
         <p>© 2026 Khristopher Ben Manilla. All rights reserved.</p>
         <nav aria-label="Social links">
-          <a href="https://github.com/kbmanilla06" target="_blank" rel="noopener noreferrer"><CodeXml aria-hidden="true" /><span>GitHub</span></a>
-          <a href="https://www.linkedin.com/in/khristopher-ben-manilla-b875181b6/" target="_blank" rel="noopener noreferrer"><Network aria-hidden="true" /><span>LinkedIn</span></a>
+          <DirectionalLink href="https://github.com/kbmanilla06" external icon={<CodeXml />}>GitHub</DirectionalLink>
+          <DirectionalLink href="https://www.linkedin.com/in/khristopher-ben-manilla-b875181b6/" external icon={<Network />}>LinkedIn</DirectionalLink>
         </nav>
       </div>
     </footer>

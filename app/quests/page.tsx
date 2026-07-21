@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
 import ProjectCard from "@/components/ui/ProjectCard";
+import SectionIndex from "@/components/ui/SectionIndex";
 import { PROJECTS } from "@/lib/content/projects";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export default function QuestsPage() {
     <div className="page-shell">
       <RevealOnScroll>
         <div className="section-heading-row">
-          <div><p className="wdl-kicker">Selected work</p><h2 className="section-title">Projects with proof</h2></div>
+          <div><p className="wdl-kicker">Selected work</p><SectionIndex n={1} /><h2 className="section-title">Projects with proof</h2></div>
           <span className="wdl-tag">{String(PROJECTS.length).padStart(2, "0")} documented builds</span>
         </div>
         <p className="section-intro">Each case study states the problem context, my contribution, collaboration model, and verifiable engineering output.</p>

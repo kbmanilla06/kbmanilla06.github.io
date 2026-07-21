@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BriefcaseBusiness, GraduationCap } from "lucide-react";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
 import WdlCard from "@/components/ui/WdlCard";
+import SectionIndex from "@/components/ui/SectionIndex";
 import { EDUCATION, EXPERIENCE } from "@/lib/content/experience";
 import { CERTIFICATIONS } from "@/lib/content/certifications";
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 export default function ArsenalPage() {
   return (
     <div className="page-shell">
-      <RevealOnScroll><p className="wdl-kicker">Career record</p><h2 className="section-title">Experience &amp; education</h2></RevealOnScroll>
+      <RevealOnScroll><p className="wdl-kicker">Career record</p><SectionIndex n={4} /><h2 className="section-title">Experience &amp; education</h2></RevealOnScroll>
       <div className="career-grid">
         <RevealOnScroll>
           <WdlCard className="career-card h-full">
@@ -40,9 +41,9 @@ export default function ArsenalPage() {
         <p className="wdl-kicker">Additional training</p>
         <h3>Certifications &amp; development</h3>
         <div className="certification-grid">
-          {CERTIFICATIONS.map((certification) => (
+          {CERTIFICATIONS.map((certification, index) => (
             <WdlCard key={certification.title} className="certification-card">
-              <div><h4>{certification.title}</h4><span>{certification.issued}</span></div>
+              <div><h4><SectionIndex n={index + 1} className="wdl-index-inline" />{certification.title}</h4><span>{certification.issued}</span></div>
               <p>{certification.issuer}</p>
               <small>{certification.credential}</small>
             </WdlCard>

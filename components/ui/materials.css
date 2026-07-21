@@ -57,6 +57,43 @@
 .wdl-button-icon { display: inline-flex; }
 .wdl-button-icon svg { width: 16px; height: 16px; stroke-width: 2; }
 
+/* WDL-AMD-007 — Index role (DR-026c) and Directional link (DR-037d) */
+.wdl-index {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--wdl-text-muted);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .08em;
+}
+/* Compact inline form for per-item numerals (list/row headings) rather than section headings. */
+.wdl-index.skill-heading-index,
+.wdl-index.wdl-index-inline { display: inline; margin-right: 8px; margin-bottom: 0; }
+
+.directional-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wdl-text-primary);
+  text-decoration: none;
+}
+.directional-link-label { text-decoration: underline; text-underline-offset: 3px; }
+.directional-link-arrow { display: inline-block; transition: transform var(--wdl-motion-fast) var(--wdl-ease-standard); }
+.directional-link:hover .directional-link-arrow { transform: translateX(4px); }
+.directional-link[data-direction="back"]:hover .directional-link-arrow { transform: translateX(-4px); }
+.directional-link:focus-visible { outline: 3px solid var(--wdl-focus); outline-offset: 3px; }
+
+/* WDL-AMD-007 — Structured contact form: numbered fields (DR-037d) */
+.numbered-field { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+.numbered-field .wdl-index { margin-top: 12px; margin-bottom: 0; }
+.numbered-field .wdl-field { width: 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .directional-link-arrow { transition: none; }
+}
+
 .quest-nav {
   position: sticky;
   top: 0;

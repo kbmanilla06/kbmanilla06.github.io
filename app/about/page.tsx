@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Radio, UserRound } from "lucide-react";
 import WdlPanel from "@/components/ui/WdlPanel";
 import RevealOnScroll from "@/components/motion/RevealOnScroll";
+import SectionIndex from "@/components/ui/SectionIndex";
 import { PROFILE } from "@/lib/content/profile";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function AboutPage() {
       <div className="grid gap-12 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)]">
         <RevealOnScroll>
           <p className="wdl-kicker">Professional profile</p>
+          <SectionIndex n={2} />
           <h2 className="section-title">Product-minded engineering, backed by validation.</h2>
           <dl className="profile-facts">
             {PROFILE_FACTS.map(({ label, value, icon: Icon }) => (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import DirectionalLink from "@/components/ui/DirectionalLink";
 import { PROJECTS } from "@/lib/content/projects";
 
 const PROJECT = PROJECTS.find((project) => project.slug === "aegis")!;
@@ -160,9 +161,7 @@ export default function AegisCaseStudyPage() {
         <h2>Inspect the evidence directly</h2>
         <div className="wdl-link-grid">
           {VERIFIED_LINKS.map((link) => (
-            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-              <span>{link.label}</span><span aria-hidden="true">↗</span>
-            </a>
+            <DirectionalLink key={link.href} href={link.href} external>{link.label}</DirectionalLink>
           ))}
         </div>
       </section>

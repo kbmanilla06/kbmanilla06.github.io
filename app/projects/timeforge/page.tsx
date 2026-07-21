@@ -3,6 +3,7 @@ import Image from "next/image";
 import WdlButton from "@/components/ui/WdlButton";
 import WdlPanel from "@/components/ui/WdlPanel";
 import WdlCard from "@/components/ui/WdlCard";
+import DirectionalLink from "@/components/ui/DirectionalLink";
 import { PROJECTS } from "@/lib/content/projects";
 
 const ALL_IN_TIME = PROJECTS.find((project) => project.slug === "timeforge")!;
@@ -236,9 +237,7 @@ export default function AllInTimeCaseStudyPage() {
         <p>Repository links lead to the exact test, CI, architecture, and operations evidence behind the claims above.</p>
         <div className="case-study-link-grid">
           {VERIFIED_LINKS.map((link) => (
-            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.label}<span aria-hidden="true"> ↗</span>
-            </a>
+            <DirectionalLink key={link.href} href={link.href} external>{link.label}</DirectionalLink>
           ))}
         </div>
       </section>

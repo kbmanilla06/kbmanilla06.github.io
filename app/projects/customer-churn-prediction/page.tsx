@@ -3,6 +3,7 @@ import Image from "next/image";
 import WdlButton from "@/components/ui/WdlButton";
 import WdlPanel from "@/components/ui/WdlPanel";
 import WdlCard from "@/components/ui/WdlCard";
+import DirectionalLink from "@/components/ui/DirectionalLink";
 import { PROJECTS } from "@/lib/content/projects";
 
 const PROJECT = PROJECTS.find((project) => project.slug === "customer-churn-prediction")!;
@@ -162,7 +163,7 @@ export default function ChurnCaseStudyPage() {
         <p className="case-study-label">Verification</p>
         <h2>Inspect the pipeline directly</h2>
         <div className="case-study-link-grid">
-          {EVIDENCE.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}<span aria-hidden="true"> ↗</span></a>)}
+          {EVIDENCE.map((link) => <DirectionalLink key={link.href} href={link.href} external>{link.label}</DirectionalLink>)}
         </div>
       </section>
     </article>
