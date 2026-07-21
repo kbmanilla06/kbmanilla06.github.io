@@ -22,7 +22,7 @@ export default function ContactPage({ standalone = true }: { standalone?: boolea
   return (
     <div className="page-shell">
       <div className="contact-layout">
-        <RevealOnScroll>
+        <RevealOnScroll className="section-rail">
           <p className="wdl-kicker">Contact</p>
           <SectionIndex n={6} />
           <Heading className="section-title">Let&rsquo;s discuss the work.</Heading>

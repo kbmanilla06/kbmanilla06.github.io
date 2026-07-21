@@ -37,7 +37,7 @@ export default function ArmoryPage({ standalone = true }: { standalone?: boolean
   const SubSubHeading = standalone ? "h3" : "h4";
   return (
     <div className="page-shell">
-      <RevealOnScroll>
+      <RevealOnScroll className="section-rail">
         <p className="wdl-kicker">Tech stack</p>
         <SectionIndex n={3} />
         <Heading className="section-title">Tools verified in the work</Heading>

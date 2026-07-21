@@ -17,7 +17,7 @@ export default function ArsenalPage({ standalone = true }: { standalone?: boolea
   const SubSubHeading = standalone ? "h3" : "h4";
   return (
     <div className="page-shell">
-      <RevealOnScroll><p className="wdl-kicker">Career record</p><SectionIndex n={4} /><Heading className="section-title">Experience &amp; education</Heading></RevealOnScroll>
+      <RevealOnScroll className="section-rail"><p className="wdl-kicker">Career record</p><SectionIndex n={4} /><Heading className="section-title">Experience &amp; education</Heading></RevealOnScroll>
       <div className="career-grid">
         <RevealOnScroll>
           <WdlCard className="career-card h-full">

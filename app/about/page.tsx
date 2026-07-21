@@ -21,7 +21,7 @@ export default function AboutPage({ standalone = true }: { standalone?: boolean 
   return (
     <div className="page-shell">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)]">
-        <RevealOnScroll>
+        <RevealOnScroll className="section-rail">
           <p className="wdl-kicker">Professional profile</p>
           <SectionIndex n={2} />
           <Heading className="section-title">Product-minded engineering, backed by validation.</Heading>

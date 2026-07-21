@@ -15,7 +15,7 @@ export default function TrophiesPage({ standalone = true }: { standalone?: boole
   const SubHeading = standalone ? "h2" : "h3";
   return (
     <div className="page-shell page-shell-narrow">
-      <RevealOnScroll>
+      <RevealOnScroll className="section-rail">
         <p className="wdl-kicker">Academic recognition</p>
         <SectionIndex n={5} />
         <Heading className="section-title">Academic honors</Heading>
