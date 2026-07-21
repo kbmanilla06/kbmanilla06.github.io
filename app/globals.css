@@ -138,6 +138,20 @@ p { color: var(--wdl-text-secondary); }
 .hero-metadata dt { order: 2; color: var(--wdl-text-muted); font-size: 12px; font-weight: 500; line-height: 16px; text-transform: uppercase; letter-spacing: .04em; }
 .hero-metadata dd { order: 1; margin: 0; color: var(--wdl-text-primary); font-size: 24px; font-weight: 600; line-height: 32px; font-variant-numeric: tabular-nums; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+/* WDL-AMD-007 motion-reveal (DR-028b): purposeful entrance only, no gate — content exists in the
+   DOM and is readable immediately; this is a pure-CSS opacity/translate reveal on first paint, so
+   it needs no JS and cannot block interaction. Collapses under the sitewide reduced-motion rule. */
+.hero-copy > * { animation: hero-reveal var(--wdl-motion-reveal) var(--wdl-ease-enter) both; }
+.hero-copy > *:nth-child(1) { animation-delay: 0ms; }
+.hero-copy > *:nth-child(2) { animation-delay: 60ms; }
+.hero-copy > *:nth-child(3) { animation-delay: 120ms; }
+.hero-copy > *:nth-child(4) { animation-delay: 180ms; }
+.hero-copy > *:nth-child(5) { animation-delay: 240ms; }
+.hero-copy > *:nth-child(6) { animation-delay: 300ms; }
+@keyframes hero-reveal {
+  from { opacity: 0; transform: translateY(var(--wdl-translate-reveal)); }
+  to { opacity: 1; transform: none; }
+}
 /* Decorative fine-grid background effect (02b-wdl-foundations.md §Background effects) — token-driven, aria-hidden, never behind body text without contrast headroom. */
 .hero-background { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--wdl-border-subtle-alpha) 1px, transparent 1px), linear-gradient(90deg, var(--wdl-border-subtle-alpha) 1px, transparent 1px); background-size: 40px 40px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent); mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent); }
 
@@ -425,7 +439,7 @@ p { color: var(--wdl-text-secondary); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
 
 @media (forced-colors: active) {
