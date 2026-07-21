@@ -14,22 +14,22 @@ export default function Home() {
         <Hero />
       </section>
       <section id="quests" className="portfolio-section" aria-label="Selected projects">
-        <QuestsPage />
+        <QuestsPage standalone={false} />
       </section>
       <section id="about" className="portfolio-section" aria-label="Professional profile">
-        <AboutPage />
+        <AboutPage standalone={false} />
       </section>
       <section id="armory" className="portfolio-section" aria-label="Skills and technology">
-        <ArmoryPage />
+        <ArmoryPage standalone={false} />
       </section>
       <section id="arsenal" className="portfolio-section" aria-label="Experience and education">
-        <ArsenalPage />
+        <ArsenalPage standalone={false} />
       </section>
       <section id="trophies" className="portfolio-section" aria-label="Academic honors">
-        <TrophiesPage />
+        <TrophiesPage standalone={false} />
       </section>
       <section id="contact" className="portfolio-section" aria-label="Contact">
-        <ContactPage />
+        <ContactPage standalone={false} />
       </section>
     </div>
   );

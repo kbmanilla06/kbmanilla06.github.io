@@ -17,14 +17,15 @@ const CONTACT_LINKS = [
   { label: "GitHub profile", href: PROFILE.github, icon: <CodeXml />, external: true },
 ];
 
-export default function ContactPage() {
+export default function ContactPage({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <div className="page-shell">
       <div className="contact-layout">
         <RevealOnScroll>
           <p className="wdl-kicker">Contact</p>
           <SectionIndex n={6} />
-          <h2 className="section-title">Let&rsquo;s discuss the work.</h2>
+          <Heading className="section-title">Let&rsquo;s discuss the work.</Heading>
           <p className="section-intro">I am open to software engineering, full-stack, AI/ML, and application-security opportunities. Email is the fastest way to reach me.</p>
           <div className="contact-links">
             {CONTACT_LINKS.map(({ label, href, icon, external }) => (

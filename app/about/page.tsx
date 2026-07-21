@@ -16,14 +16,15 @@ const PROFILE_FACTS = [
   { label: "Availability", value: PROFILE.availability, icon: Radio },
 ] as const;
 
-export default function AboutPage() {
+export default function AboutPage({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
   return (
     <div className="page-shell">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)]">
         <RevealOnScroll>
           <p className="wdl-kicker">Professional profile</p>
           <SectionIndex n={2} />
-          <h2 className="section-title">Product-minded engineering, backed by validation.</h2>
+          <Heading className="section-title">Product-minded engineering, backed by validation.</Heading>
           <div className="profile-facts">
             {PROFILE_FACTS.map(({ label, value, icon: Icon }) => (
               <div key={label}>

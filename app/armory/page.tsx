@@ -31,13 +31,16 @@ const STRENGTHS = ["Evidence-led decisions", "Automated validation", "Secure by 
 
 const TECH_COUNT = TECH_STACK.reduce((total, category) => total + category.technologies.length, 0);
 
-export default function ArmoryPage() {
+export default function ArmoryPage({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
+  const SubHeading = standalone ? "h2" : "h3";
+  const SubSubHeading = standalone ? "h3" : "h4";
   return (
     <div className="page-shell">
       <RevealOnScroll>
         <p className="wdl-kicker">Tech stack</p>
         <SectionIndex n={3} />
-        <h2 className="section-title">Tools verified in the work</h2>
+        <Heading className="section-title">Tools verified in the work</Heading>
         <p className="section-intro">
           Every technology below is confirmed in this portfolio&rsquo;s repository or in the public repositories of the featured
           projects — through dependency manifests, configuration, imports, or CI workflows.
@@ -47,14 +50,14 @@ export default function ArmoryPage() {
       <div className="skills-layout">
         <RevealOnScroll className="skills-list">
           <div className="skills-list-header">
-            <div><p className="wdl-kicker">Repository-verified</p><h3>Technology stack</h3></div>
+            <div><p className="wdl-kicker">Repository-verified</p><SubHeading>Technology stack</SubHeading></div>
             <span className="wdl-tag">{TECH_COUNT} technologies</span>
           </div>
           {TECH_STACK.map((category, index) => (
             <article className="skill-row" key={category.name}>
               <div className="skill-icon" aria-hidden="true">{CATEGORY_ICONS[category.iconKey]}</div>
               <div>
-                <div className="skill-heading"><h3><SectionIndex n={index + 1} className="skill-heading-index" />{category.name}</h3><span>{category.technologies.length} tools</span></div>
+                <div className="skill-heading"><SubHeading><SectionIndex n={index + 1} className="skill-heading-index" />{category.name}</SubHeading><span>{category.technologies.length} tools</span></div>
                 <ul className="tech-tags" aria-label={`${category.name} technologies`}>
                   {category.technologies.map((tech) => <li key={tech} className="wdl-tag">{tech}</li>)}
                 </ul>
@@ -67,12 +70,12 @@ export default function ArmoryPage() {
         <RevealOnScroll delay={0.08}>
           <aside className="profile-panel" aria-label="Engineering profile">
             <p className="wdl-kicker">Engineering profile</p>
-            <h3>Khristopher Ben Manilla</h3>
+            <SubHeading>Khristopher Ben Manilla</SubHeading>
             <dl>
               {PROFILE_STATUS.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
             </dl>
             <div className="strength-list">
-              <h4>Professional strengths</h4>
+              <SubSubHeading>Professional strengths</SubSubHeading>
               <ul>{STRENGTHS.map((strength) => <li key={strength}>{strength}</li>)}</ul>
             </div>
           </aside>

@@ -11,16 +11,19 @@ export const metadata: Metadata = {
   description: "Software engineering internship experience and Computer Science education.",
 };
 
-export default function ArsenalPage() {
+export default function ArsenalPage({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
+  const SubHeading = standalone ? "h2" : "h3";
+  const SubSubHeading = standalone ? "h3" : "h4";
   return (
     <div className="page-shell">
-      <RevealOnScroll><p className="wdl-kicker">Career record</p><SectionIndex n={4} /><h2 className="section-title">Experience &amp; education</h2></RevealOnScroll>
+      <RevealOnScroll><p className="wdl-kicker">Career record</p><SectionIndex n={4} /><Heading className="section-title">Experience &amp; education</Heading></RevealOnScroll>
       <div className="career-grid">
         <RevealOnScroll>
           <WdlCard className="career-card h-full">
             <BriefcaseBusiness aria-hidden="true" />
             <p className="wdl-kicker">{EXPERIENCE.period}</p>
-            <h3>{EXPERIENCE.role}</h3>
+            <SubHeading>{EXPERIENCE.role}</SubHeading>
             <p className="career-org">{EXPERIENCE.organization}</p>
             <p>{EXPERIENCE.summary}</p>
             <ul className="evidence-bullet-list">{EXPERIENCE.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>
@@ -30,7 +33,7 @@ export default function ArsenalPage() {
           <WdlCard className="career-card h-full">
             <GraduationCap aria-hidden="true" />
             <p className="wdl-kicker">{EDUCATION.period}</p>
-            <h3>{EDUCATION.degree}</h3>
+            <SubHeading>{EDUCATION.degree}</SubHeading>
             <p className="career-org">{EDUCATION.school}</p>
             <p>{EDUCATION.standing}</p>
           </WdlCard>
@@ -39,11 +42,11 @@ export default function ArsenalPage() {
 
       <RevealOnScroll delay={0.12} className="certification-section">
         <p className="wdl-kicker">Additional training</p>
-        <h3>Certifications &amp; development</h3>
+        <SubHeading>Certifications &amp; development</SubHeading>
         <div className="certification-grid">
           {CERTIFICATIONS.map((certification, index) => (
             <WdlCard key={certification.title} className="certification-card">
-              <div><h4><SectionIndex n={index + 1} className="wdl-index-inline" />{certification.title}</h4><span>{certification.issued}</span></div>
+              <div><SubSubHeading><SectionIndex n={index + 1} className="wdl-index-inline" />{certification.title}</SubSubHeading><span>{certification.issued}</span></div>
               <p>{certification.issuer}</p>
               <small>{certification.credential}</small>
             </WdlCard>

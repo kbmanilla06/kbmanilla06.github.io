@@ -10,13 +10,15 @@ export const metadata: Metadata = {
   description: "Academic honors earned by Khristopher Ben Manilla.",
 };
 
-export default function TrophiesPage() {
+export default function TrophiesPage({ standalone = true }: { standalone?: boolean }) {
+  const Heading = standalone ? "h1" : "h2";
+  const SubHeading = standalone ? "h2" : "h3";
   return (
     <div className="page-shell page-shell-narrow">
       <RevealOnScroll>
         <p className="wdl-kicker">Academic recognition</p>
         <SectionIndex n={5} />
-        <h2 className="section-title">Academic honors</h2>
+        <Heading className="section-title">Academic honors</Heading>
       </RevealOnScroll>
       <div className="achievement-list">
         {ACHIEVEMENTS.map((achievement, index) => (
@@ -25,7 +27,7 @@ export default function TrophiesPage() {
               <div className="achievement-icon"><Award aria-hidden="true" /></div>
               <div>
                 <div className="achievement-meta"><span>{achievement.years}</span><span className="wdl-tag">{achievement.distinction}</span></div>
-                <h3><SectionIndex n={index + 1} className="wdl-index-inline" />{achievement.title}</h3>
+                <SubHeading><SectionIndex n={index + 1} className="wdl-index-inline" />{achievement.title}</SubHeading>
                 <p className="achievement-org">{achievement.org}</p>
                 <p>{achievement.description}</p>
               </div>

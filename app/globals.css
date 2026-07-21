@@ -151,6 +151,7 @@ p { color: var(--wdl-text-secondary); }
 .project-status svg { width: 14px; height: 14px; color: var(--wdl-status-success); }
 .project-card-body { display: flex; flex: 1; flex-direction: column; gap: 24px; padding: 24px; }
 .project-card-heading { display: grid; gap: 8px; }
+.project-card-heading h2,
 .project-card-heading h3 { font-size: 24px; font-weight: 600; line-height: 32px; }
 .project-card-heading > p:last-child { color: var(--wdl-text-muted); font-size: 14px; line-height: 20px; }
 .project-summary { font-size: 16px; line-height: 24px; }
@@ -178,12 +179,14 @@ p { color: var(--wdl-text-secondary); }
 .skills-layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .5fr); gap: 24px; margin-top: 48px; align-items: start; }
 .skills-list { overflow: hidden; border: 1px solid var(--wdl-border-default); border-radius: var(--wdl-radius-lg); background: var(--wdl-surface-section); }
 .skills-list-header { display: flex; min-height: 88px; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--wdl-border-default); padding: 20px 24px; }
+.skills-list-header h2,
 .skills-list-header h3 { margin-top: 4px; font-size: 20px; line-height: 28px; }
 .skill-row { display: grid; grid-template-columns: auto 1fr; gap: 16px; border-bottom: 1px solid var(--wdl-border-subtle); padding: 20px 24px; }
 .skill-row:last-child { border-bottom: 0; }
 .skill-icon { display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--wdl-border-strong); border-radius: var(--wdl-radius-md); background: var(--wdl-surface-card); color: var(--wdl-action-primary); }
 .skill-icon svg { width: 20px; height: 20px; }
 .skill-heading { display: flex; justify-content: space-between; gap: 16px; }
+.skill-heading h2,
 .skill-heading h3 { font-size: 16px; font-weight: 600; line-height: 24px; }
 .skill-heading span { color: var(--wdl-text-muted); font-size: 12px; line-height: 16px; }
 .skill-row p { margin-top: 8px; font-size: 14px; line-height: 20px; }
@@ -191,18 +194,21 @@ p { color: var(--wdl-text-secondary); }
 .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; padding: 0; list-style: none; }
 .tech-tags .wdl-tag { color: var(--wdl-text-primary); }
 .profile-panel { position: sticky; top: 96px; border: 1px solid var(--wdl-border-strong); border-radius: var(--wdl-radius-lg); background: var(--wdl-surface-card); padding: 24px; box-shadow: var(--wdl-elevation-2), inset 0 1px 0 var(--wdl-highlight-soft); }
+.profile-panel h2,
 .profile-panel h3 { margin-top: 8px; font-size: 20px; line-height: 28px; }
 .profile-panel dl { display: grid; gap: 16px; margin-top: 28px; }
 .profile-panel dl > div { border-bottom: 1px solid var(--wdl-border-subtle); padding-bottom: 12px; }
 .profile-panel dt { color: var(--wdl-text-muted); font-size: 12px; line-height: 16px; text-transform: uppercase; }
 .profile-panel dd { margin-top: 4px; color: var(--wdl-text-primary); font-size: 14px; line-height: 20px; }
 .strength-list { margin-top: 28px; }
+.strength-list h3,
 .strength-list h4 { font-size: 14px; line-height: 20px; }
 .strength-list ul { display: grid; gap: 8px; margin-top: 12px; padding: 0; list-style: none; }
 .strength-list li { color: var(--wdl-text-secondary); font-size: 14px; line-height: 20px; }
 .career-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 24px; margin-top: 48px; }
 .career-card { padding: 32px; }
 .career-card > svg { width: 24px; height: 24px; margin-bottom: 24px; color: var(--wdl-action-primary); }
+.career-card h2,
 .career-card h3 { margin-top: 12px; font-size: 24px; line-height: 32px; }
 .career-card .career-org { margin-top: 8px; color: var(--wdl-action-primary); font-weight: 500; }
 .career-card > p:not(.wdl-kicker):not(.career-org) { margin-top: 20px; font-size: 14px; line-height: 22px; }
@@ -211,6 +217,7 @@ p { color: var(--wdl-text-secondary); }
 .certification-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
 .certification-card { padding: 20px; }
 .certification-card > div { display: flex; justify-content: space-between; gap: 16px; }
+.certification-card h3,
 .certification-card h4 { font-size: 16px; line-height: 24px; }
 .certification-card span { color: var(--wdl-text-muted); font-size: 12px; line-height: 16px; }
 .certification-card p { margin-top: 12px; color: var(--wdl-action-primary); font-size: 14px; }
@@ -220,6 +227,7 @@ p { color: var(--wdl-text-secondary); }
 .achievement-icon { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid var(--wdl-border-strong); border-radius: var(--wdl-radius-md); background: var(--wdl-surface-elevated); color: var(--wdl-action-primary); }
 .achievement-icon svg { width: 24px; height: 24px; }
 .achievement-meta { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--wdl-text-muted); font-size: 12px; }
+.achievement-card h2,
 .achievement-card h3 { margin-top: 16px; font-size: 24px; line-height: 32px; }
 .achievement-card .achievement-org { margin-top: 4px; color: var(--wdl-action-primary); font-size: 14px; }
 .achievement-card p:last-child { margin-top: 12px; font-size: 14px; line-height: 20px; }

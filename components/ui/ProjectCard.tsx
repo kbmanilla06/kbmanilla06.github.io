@@ -3,7 +3,8 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type { Project } from "@/lib/content/projects";
 import WdlButton from "./WdlButton";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, headingLevel = "h3" }: { project: Project; headingLevel?: "h2" | "h3" }) {
+  const Heading = headingLevel;
   return (
     <article className={`project-card ${project.featured ? "project-card-featured" : ""}`}>
       <div className="project-card-image">
@@ -19,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="project-card-body">
         <div className="project-card-heading">
           <p className="wdl-kicker">{project.projectNumber}{project.rank ? ` · ${project.rank}` : ""}</p>
-          <h3>{project.title}</h3>
+          <Heading>{project.title}</Heading>
           <p>{project.category} · {project.year}</p>
         </div>
         <p className="project-summary">{project.summary}</p>
