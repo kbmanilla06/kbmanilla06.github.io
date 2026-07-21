@@ -24,14 +24,14 @@ export default function AboutPage() {
           <p className="wdl-kicker">Professional profile</p>
           <SectionIndex n={2} />
           <h2 className="section-title">Product-minded engineering, backed by validation.</h2>
-          <dl className="profile-facts">
+          <div className="profile-facts">
             {PROFILE_FACTS.map(({ label, value, icon: Icon }) => (
               <div key={label}>
                 <Icon aria-hidden="true" />
-                <span><dt>{label}</dt><dd>{value}</dd></span>
+                <dl><div><dt>{label}</dt><dd>{value}</dd></div></dl>
               </div>
             ))}
-          </dl>
+          </div>
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1}>
