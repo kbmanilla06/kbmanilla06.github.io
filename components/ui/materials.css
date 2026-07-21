@@ -7,7 +7,7 @@
   border-radius: var(--wdl-radius-md);
   background: var(--wdl-surface-card);
   color: var(--wdl-text-primary);
-  box-shadow: var(--wdl-elevation-2);
+  box-shadow: var(--wdl-elevation-2), inset 0 1px 0 var(--wdl-highlight-soft);
 }
 
 .wdl-panel { padding: 24px; }
@@ -49,11 +49,11 @@
   color: var(--wdl-action-on-primary);
 }
 .wdl-control.variant-accent:hover:not(:disabled),
-.wdl-button-primary:hover:not(:disabled) { background: var(--wdl-action-primary-hover); }
+.wdl-button-primary:hover:not(:disabled) { background: var(--wdl-action-primary-hover); box-shadow: var(--wdl-glow-subtle); }
 .wdl-control.variant-accent:active:not(:disabled),
-.wdl-button-primary:active:not(:disabled) { background: var(--wdl-action-primary-active); }
+.wdl-button-primary:active:not(:disabled) { background: var(--wdl-action-primary-active); box-shadow: none; }
 .wdl-control.variant-ghost { border-color: transparent; background: transparent; }
-.wdl-control.variant-ghost:hover:not(:disabled) { background: var(--wdl-surface-card); }
+.wdl-control.variant-ghost:hover:not(:disabled) { background: var(--wdl-highlight-soft); }
 .wdl-button-icon { display: inline-flex; }
 .wdl-button-icon svg { width: 16px; height: 16px; stroke-width: 2; }
 
@@ -81,7 +81,9 @@
 .quest-nav-tab { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; border: 1px solid transparent; border-radius: var(--wdl-radius-md); padding: 10px 12px; color: var(--wdl-text-secondary); font-size: 14px; font-weight: 500; transition: background var(--wdl-motion-fast) var(--wdl-ease-standard), color var(--wdl-motion-fast) var(--wdl-ease-standard); }
 .quest-nav-tab:hover { background: var(--wdl-surface-card); color: var(--wdl-text-primary); }
 .quest-nav-tab[aria-current] { border-color: var(--wdl-border-strong); background: var(--wdl-surface-elevated); color: var(--wdl-text-primary); }
-.quest-nav-tab.cta { color: var(--wdl-action-primary); }
+.quest-nav-tab.cta { border-color: var(--wdl-action-primary); background: var(--wdl-action-primary); color: var(--wdl-action-on-primary); font-weight: 600; }
+.quest-nav-tab.cta:hover { background: var(--wdl-action-primary-hover); border-color: var(--wdl-action-primary-hover); color: var(--wdl-action-on-primary); }
+.quest-nav-tab.cta[aria-current] { background: var(--wdl-action-primary-active); border-color: var(--wdl-action-primary-active); color: var(--wdl-action-on-primary); }
 .quest-nav-tab-icon,
 .quest-nav-mobile-icon { display: inline-flex; }
 .quest-nav-tab-icon svg,
