@@ -73,10 +73,10 @@ export const TECH_STACK: TechCategory[] = [
     technologies: ["Docker", "GitHub Actions", "Vercel", "Git"],
   },
   {
-    name: "Design & 3D",
+    name: "Motion & Design System",
     iconKey: "design",
-    evidence: "Interactive 3D hero (Spline) with Framer Motion and GSAP motion in this portfolio.",
-    technologies: ["Spline", "Framer Motion", "GSAP", "Lucide"],
+    evidence: "Framer Motion and GSAP scroll reveals, Lucide icons, and the WashDish Design Language token system in this portfolio.",
+    technologies: ["Framer Motion", "GSAP", "Lucide", "WashDish Design Language"],
   },
   {
     name: "Integrations & State",

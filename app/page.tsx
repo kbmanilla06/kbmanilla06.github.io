@@ -1,5 +1,4 @@
-import HeroModel from "@/components/3d/HeroModel";
-import LandingSequence from "@/components/3d/LandingSequence";
+import Hero from "@/components/sections/Hero";
 import QuestsPage from "@/app/quests/page";
 import AboutPage from "@/app/about/page";
 import ArmoryPage from "@/app/armory/page";
@@ -11,10 +10,8 @@ export default function Home() {
   return (
     <div>
       <section id="home" className="portfolio-section hero-section" aria-label="Introduction">
-        <div className="hero-grid">
-          <LandingSequence />
-          <HeroModel />
-        </div>
+        <div className="hero-background" aria-hidden="true" />
+        <Hero />
       </section>
       <section id="quests" className="portfolio-section" aria-label="Selected projects">
         <QuestsPage />
